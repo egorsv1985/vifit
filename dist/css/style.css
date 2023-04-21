@@ -1,0 +1,794 @@
+@charset "UTF-8";
+/* -----------------------------------------------------------------
+                       @media
+1-ый параметр $min-max принимает 3 аргумента min, max, min-max.
+   min       - для mobil @media
+   max       - для dectop @media
+   min-max   - для промежутка между mobil-dectop @media
+2-ой параметр $breakpoint_1 принимает 1-ин аргумент.
+   ключ      - хранятся в созданной карте $grid_breakpoints(xxl, xl, lg, md , sm...)
+3-ий параметр $breakpoint_2 принимает 1-ин аргумент, является не обязательным параметром.
+   ключ      - хранятся в созданной карте $grid_breakpoints(xxl, xl, lg, md , sm...) нужен для 1-ого параметра 3 аргумента.
+ Дополнение:
+   map-has-key  - Нужен для проверки ключа в карте, если ключа указанного нет то условие не выполняется.
+   map-get      - Нужен для использование ключей из карты.
+Пример:
+   @include media(max, xxl) { display: none;}
+   @include media(min, xxl) { display: none;}
+   @include media(min-max, mn-lg, mx-xxl) { display: none;}
+Одиночные брекпоинты:
+   @include media(max, 870px,) { display: none;}
+   @include media(min, 870px,) { display: none;}
+   @include media(min-max, 870px, 1000px) { display: none;}
+--------------------------------------------------------------------*/
+@font-face {
+  font-family: BOWLER;
+  font-display: swap;
+  src: url("../fonts/BOWLER.woff2") format("woff2"), url("../fonts/BOWLER.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: icons;
+  font-display: swap;
+  src: url("../fonts/icons.woff2") format("woff2"), url("../fonts/icons.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: micra;
+  font-display: swap;
+  src: url("../fonts/micra-bold.woff2") format("woff2"), url("../fonts/micra-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Mulish;
+  font-display: swap;
+  src: url("../fonts/Mulish-Regular.woff2") format("woff2"), url("../fonts/Mulish-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: NormalidadWide;
+  font-display: swap;
+  src: url("../fonts/NormalidadWide-WideBold.woff2") format("woff2"), url("../fonts/NormalidadWide-WideBold.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: micra;
+  font-display: swap;
+  src: url("../fonts/micra.woff2") format("woff2"), url("../fonts/micra.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: NormalidadWide;
+  font-display: swap;
+  src: url("../fonts/NormalidadWide-WideLight.woff2") format("woff2"), url("../fonts/NormalidadWide-WideLight.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: NormalidadCompact;
+  font-display: swap;
+  src: url("../fonts/NormalidadCompact-Bold.woff2") format("woff2"), url("../fonts/NormalidadCompact-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: ProximaNova;
+  font-display: swap;
+  src: url("../fonts/ProximaNova-Extrabld.woff2") format("woff2"), url("../fonts/ProximaNova-Extrabld.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: ProximaNova;
+  font-display: swap;
+  src: url("../fonts/ProximaNova-ExtrabldIt.woff2") format("woff2"), url("../fonts/ProximaNova-ExtrabldIt.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: ProximaNova;
+  font-display: swap;
+  src: url("../fonts/ProximaNova-Light.woff2") format("woff2"), url("../fonts/ProximaNova-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: ProximaNova;
+  font-display: swap;
+  src: url("../fonts/ProximaNova-Regular.woff2") format("woff2"), url("../fonts/ProximaNova-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: ProximaNova;
+  font-display: swap;
+  src: url("../fonts/ProximaNova-Black.woff2") format("woff2"), url("../fonts/ProximaNova-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: ProximaNova;
+  font-display: swap;
+  src: url("../fonts/ProximaNova-BlackIt.woff2") format("woff2"), url("../fonts/ProximaNova-BlackIt.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: ProximaNova;
+  font-display: swap;
+  src: url("../fonts/ProximaNova-Bold.woff2") format("woff2"), url("../fonts/ProximaNova-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+[class*=_icon-]:before {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class*=_icon-]:before {
+  display: block;
+}
+
+._icon-cart:before {
+  content: "\e900";
+}
+
+._icon-delet:before {
+  content: "\e902";
+}
+
+._icon-instagram:before {
+  content: "\e903";
+}
+
+._icon-logo:before {
+  content: "\e904";
+}
+
+._icon-plus:before {
+  content: "\e905";
+}
+
+._icon-search:before {
+  content: "\e906";
+}
+
+._icon-youtube:before {
+  content: "\e907";
+}
+
+._icon-telegram:before {
+  content: "\e908";
+}
+
+._icon-arrow:before {
+  content: "\e909";
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  color: #fff;
+  line-height: 1;
+  font-family: "micra";
+  font-size: 1.25rem;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+textarea {
+  font-family: "micra";
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.wrapper > main {
+  flex: 1 1 auto;
+}
+.wrapper > * {
+  min-width: 0;
+}
+
+/*
+(i) Стили будут применяться ко 
+всем классам содержащим *__container
+Например header__container, main__container и т.д.
+Снипет (HTML): cnt
+*/
+[class*=__container] {
+  max-width: 72.5rem;
+  box-sizing: content-box;
+  margin: 0 auto;
+  padding: 0 0.9375rem;
+}
+
+picture {
+  width: 100%;
+  height: 100%;
+}
+
+.img {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.title {
+  font-family: "micra-bold";
+  --font-size-prime: clamp(30px, 2.16vw + 22.21px, 59px);
+  --line-height-prime: clamp(28px, 2.46vw + 19.13px, 61px);
+  font-size: var(--font-size-prime);
+  line-height: var(--line-height-prime);
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  position: relative;
+  font-family: "BOWLER";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 59px;
+  line-height: 65px;
+  color: #010101;
+}
+
+.subtitle {
+  font-family: "ProximaNova-ExtrabldIt";
+  font-style: italic;
+  font-weight: 900;
+  font-size: 25px;
+  line-height: 30px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.text {
+  font-family: "ProximaNova-Light";
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 20px;
+  color: #fff;
+}
+.text--right {
+  text-align: right;
+}
+@media only screen and (max-width: 992px) {
+  .text--right {
+    text-align: center;
+  }
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(264deg, #ff0202 0%, #7200ff 100%);
+  border-radius: 21px;
+  font-family: "ProximaNova-Extrabld";
+  padding: 0 15px;
+  font-weight: 800;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.btn:hover {
+  background: #fff;
+}
+.btn:hover a {
+  background: linear-gradient(84.14deg, #7200ff -0.11%, #ff0202 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+body::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease 0s;
+  pointer-events: none;
+  z-index: 9997;
+}
+
+body.popup-show::after {
+  opacity: 1;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: visibility 0.8s ease 0s;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.popup_show {
+  z-index: 9999;
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto;
+}
+
+.popup_show .popup__content {
+  visibility: visible;
+  transform: scale(1);
+}
+
+.popup__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+.popup__content {
+  visibility: hidden;
+  transform: scale(0);
+  transition: transform 0.3s ease 0s;
+  padding: 45px 20px;
+  width: 100%;
+  max-width: 640px;
+}
+@media only screen and (min-width: 992px) {
+  .popup__content {
+    padding: 45px 40px;
+  }
+}
+.lock .popup__content {
+  visibility: visible;
+}
+
+[class*=-ibg] {
+  position: relative;
+}
+[class*=-ibg] img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+[class*=-ibg_contain] img {
+  object-fit: contain;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.burger {
+  display: none;
+  height: 30px;
+  width: 30px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 15;
+}
+@media only screen and (max-width: 992px) {
+  .burger {
+    display: block;
+  }
+}
+.burger__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.burger__inner span, .burger__inner::before, .burger__inner::after {
+  content: "";
+  transition: all 0.3s ease 0s;
+  right: 0px;
+  position: absolute;
+  height: 3px;
+  background-color: #fff;
+}
+.burger__inner span {
+  width: 21px;
+}
+.burger__inner::before {
+  width: 30px;
+  top: 0px;
+}
+.burger__inner::after {
+  width: 13px;
+  bottom: 0px;
+}
+.burger__inner span {
+  top: calc(50% - 1px);
+}
+.open .burger__inner span {
+  transform: scale(0);
+}
+.open .burger__inner::before {
+  transform: rotate(-45deg);
+  top: calc(50% - 1px);
+}
+.open .burger__inner::after {
+  transform: rotate(45deg);
+  bottom: calc(50% - 1px);
+  width: 30px;
+}
+
+.scroll-up .header {
+  transform: none;
+}
+.scroll-up .header__wrapper {
+  background-color: rgba(1, 1, 1, 0.5);
+}
+
+.open .header {
+  transform: translate3d(0, 0, 0);
+}
+
+.popup__content {
+  background-color: linear-gradient(264deg, #ff0202 0%, #7200ff 100%);
+  border-radius: 40px;
+}
+.popup__close {
+  position: absolute;
+  top: 25px;
+  right: 10px;
+}
+.popup__close svg {
+  width: 30px;
+  height: 30px;
+}
+.popup .form__body {
+  flex-direction: column;
+}
+.popup .form__input {
+  border-color: #fff;
+  width: 100%;
+}
+.popup .form__input:focus ~ .form__label, .popup .form__input:valid ~ .form__label {
+  top: 50%;
+  opacity: 0;
+}
+.popup .form__input::placeholder {
+  font-size: 16px;
+  line-height: 20px;
+  color: #fff;
+}
+.popup .form__btn {
+  width: 100%;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.header__top {
+  padding: 20px 0;
+  width: 100%;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+}
+.header__top-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo {
+  --logo-margin-right: clamp(30px, 11.36vw + -83.64px, 80px);
+  margin-right: var(--logo-margin-right);
+}
+@media only screen and (max-width: 575px) {
+  .header__logo {
+    display: none;
+  }
+}
+.header__box {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: relative;
+}
+@media only screen and (max-width: 575px) {
+  .header__box {
+    display: none;
+  }
+}
+.header__box::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -35px;
+}
+.header__box--time {
+  --time-margin-right: clamp(30px, 6.82vw + -38.18px, 60px);
+  margin-right: var(--time-margin-right);
+}
+@media only screen and (max-width: 992px) {
+  .header__box--time {
+    display: none;
+  }
+}
+.header__box--time::before {
+  background-image: url(../img/icons/time.svg);
+  width: 29px;
+  height: 29px;
+}
+@media only screen and (max-width: 992px) {
+  .header__box--map {
+    display: none;
+  }
+}
+.header__box--map::before {
+  background-image: url(../img/icons/map.svg);
+  width: 27px;
+  height: 32px;
+}
+.header__span {
+  font-family: "ProximaNova-Light";
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 18px;
+  color: #fff;
+}
+.header__btn {
+  height: 29px;
+}
+.header__link {
+  font-family: "ProximaNova-Bold";
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: #fff;
+}
+.header__social-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  gap: 12px;
+}
+.header__bottom {
+  background-color: transparent;
+  background-color: #fff;
+  width: 100%;
+}
+@media only screen and (max-width: 992px) {
+  .header__bottom {
+    display: none;
+  }
+}
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav__link {
+  font-family: "ProximaNova-Light";
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 15px;
+  color: #000;
+}
+
+.logo__img {
+  width: 159px;
+}
+
+.open .header__block {
+  min-width: 135px;
+}
+.open .header .header__bottom {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+.open .header__nav {
+  display: flex;
+  padding: 20px;
+  width: 100%;
+  min-width: 320px;
+  background-color: #ddeefe;
+}
+.open .nav__list {
+  gap: 22px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1280px;
+  padding: 0 1.5%;
+}
+.open .nav__item {
+  font-size: 20px;
+  text-align: center;
+}
+.open .nav__item--map::before {
+  background-image: url(../img/icons/location.svg);
+  width: 14px;
+  height: 18px;
+}
+.open .nav__item--work::before {
+  background-image: url(../img/icons/watch.svg);
+  width: 16px;
+  height: 16px;
+}
+.open .nav__item--mail::before {
+  background-image: url(../img/icons/letter.svg);
+  width: 19px;
+  height: 14px;
+}
+.open .nav__item--tel::before {
+  background-image: url(../img/icons/phone.svg);
+  width: 16px;
+  height: 16px;
+}
+.open .nav__item--services::before {
+  display: none;
+}
+.open .nav__item--work, .open .nav__item--mail, .open .nav__item--tel, .open .nav__item--services, .open .nav__item--map {
+  position: relative;
+}
+.open .nav__item--work::before, .open .nav__item--mail::before, .open .nav__item--tel::before, .open .nav__item--services::before, .open .nav__item--map::before {
+  position: absolute;
+  top: 0;
+  left: -30px;
+}
+.open .nav__tel {
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  color: #53cd8b;
+}
+.open .nav--top {
+  color: #707777;
+  border-bottom: none;
+  padding: 0;
+  margin: 0;
+}
+.open .nav--top .nav__list {
+  gap: 28px;
+  padding-left: 30px;
+}
+.open .nav--top .nav__list li:first-child {
+  letter-spacing: -0.1px;
+}
+.open .nav--bottom {
+  color: #fff;
+  gap: 40px;
+  flex-direction: column;
+}
+.open .nav--bottom .nav__link {
+  font-size: 14px;
+}
+.swiper {
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+  display: flex;
+  position: relative;
+}
+
+.swiper-vertical .swiper-wrapper {
+  flex-direction: column;
+}
+
+.swiper-autoheight .swiper-wrapper {
+  align-items: flex-start;
+}
+
+.swiper-initialized .swiper-slide {
+  flex-shrink: 0;
+}
+
+.swiper-android .swiper-slide,
+.swiper-android .swiper-wrapper {
+  transform: translate3d(0px, 0, 0);
+}

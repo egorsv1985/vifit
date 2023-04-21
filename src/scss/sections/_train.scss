@@ -1,0 +1,58 @@
+.train {
+  position: relative;
+  padding: 100px 0 50px;
+  // .train__wrapper
+  &__wrapper {
+    @include flex(space-between, $flex-direction: column);
+    gap: 100px;
+    max-width: 1700px;
+    margin: 0 auto;
+    
+  }
+  // .train__title
+  &__title {
+    &::after {
+      left: -10%;
+    }
+  }
+  // .train__content
+  &__content {
+    @include flex(space-between);
+    overflow-x: auto;
+    
+  }
+  // .train__box
+  &__box {
+    @include flex(center, center);
+    position: relative;
+    min-width: 425px;
+    min-height: 649px;
+    max-width: 100%;
+    
+    
+    picture{
+      position: absolute;
+      top: 0%;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  // .train__img
+  &__img {
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+  }
+  // .train__subtitle
+  &__subtitle {
+    position: relative;
+    z-index: 1;
+
+    font-family: "micra-bold";
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 26px;
+    text-align: center;
+  }
+}

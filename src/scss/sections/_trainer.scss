@@ -1,0 +1,187 @@
+.trainer {
+  position: relative;
+  padding: 50px 0 60px;
+  // .trainer__wrapper
+  &__wrapper {
+    @include flex(space-between, $flex-direction: column);
+    gap: 90px;
+  }
+  // .trainer__title
+  &__title {
+  }
+  // .trainer__list
+  &__list {
+    @include flex(space-between, center, wrap);
+    gap: 22px;
+    @include media (max, 1250px) {
+      justify-content: start;
+    }
+  }
+  // .trainer__tab
+  &__tab {
+    padding: 20px 45px;
+    @include flex(center, center);
+
+    background-color: #3a3a3a;
+    border-radius: 53px;
+
+    font-family: "ProximaNova-Regular";
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+
+    color: $textMainColor;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background: #fff;
+      color: $textAccentColor;
+    }
+  }
+
+  .tab:focus-visible {
+    background-color: royalblue;
+    color: whitesmoke;
+    outline: 0.2em solid transparent;
+  }
+
+  .tab[aria-selected="true"] {
+  }
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+  }
+  .tab {
+    button {
+      background-color: #f1f1f1;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+      &:hover {
+        background-color: #ddd;
+      }
+      &.active {
+        background-color: #ccc;
+      }
+    }
+  }
+  .tab[aria-selected="true"] {
+    background-color: var(--component-bg);
+  }
+  .content {
+    margin-top: 105px;
+  }
+  .tabpanel {
+    display: none;
+  }
+  .tabpanel.active {
+    display: block;
+  }
+  .swiper {
+    // overflow: visible;
+    .swiper-wrapper {
+      // justify-content: center;
+     
+    }
+    // .swiper__item
+    &__item {
+    }
+
+    // .swiper__box-img
+    &__box-img {
+      max-width: 375px;
+      align-self: center;
+      margin-bottom: 25px;
+    }
+    // .swiper__img
+    &__img {
+    }
+    // .swiper__box-content
+    &__box-content {
+      @include flex(space-between, $flex-direction: column);
+      gap: 10px;
+
+      margin-bottom: 20px;
+    }
+    // .swiper__name
+    &__name {
+      font-family: "ProximaNova-Extrabld";
+      font-weight: 800;
+      font-size: 25px;
+      line-height: 25px;
+
+      color: #010101;
+    }
+    // .swiper__job
+    &__job {
+      font-family: "ProximaNova-Regular";
+
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 24px;
+
+      color: #010101;
+    }
+    // .swiper__btn
+    &__btn {
+      @include flex(center, center);
+      padding: 15px 40px;
+
+      background-color: #000;
+      border-radius: 25px;
+      font-family: "ProximaNova-Regular";
+
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 24px;
+      text-align: center;
+      text-transform: uppercase;
+
+      color: $textMainColor;
+      transition: all 0.2s ease-in-out;
+    &:hover {
+      background: #3a3a3a;
+    }
+    }
+  }
+  .trainerSwiper {
+  }
+  .swiper-wrapper {
+    padding: 35px 0 20px;
+  }
+  .swiper-slide {
+    max-width: 100%;
+    @include flex(space-between, $flex-direction: column);
+    padding: 20px 30px 16px;
+
+    background-color: #fff;
+    width: 375px !important;
+    transform: rotate(7deg);
+    transition: all .2s ease-in-out;
+    &:hover{
+      transform: rotate(0deg);
+    }
+
+    &:nth-child(2n) {
+      position: relative;
+      z-index: 1;
+      transform: rotate(-7deg);
+      transition: all .2s ease-in-in;
+      &:hover{
+        transform: rotate(0deg);
+      }
+      .swiper__img {
+      }
+    }
+  }
+  .btn {
+  }
+}

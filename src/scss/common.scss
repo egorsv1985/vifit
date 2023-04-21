@@ -1,0 +1,77 @@
+// Заголовки, общие БЄМ блоки и проче...
+
+.title {
+  font-family: "micra-bold";
+  --font-size-prime: clamp(30px, 2.16vw + 22.21px, 59px);
+  --line-height-prime: clamp(28px, 2.46vw + 19.13px, 61px);
+  font-size: var(--font-size-prime);
+  line-height: var(--line-height-prime);
+  font-weight: 700;
+  color: $textMainColor;
+  text-transform: uppercase;
+
+  position: relative;
+  
+
+font-family: 'BOWLER';
+font-style: normal;
+font-weight: 400;
+font-size: 59px;
+line-height: 65px;
+
+color: #010101;
+
+
+}
+
+.subtitle {
+  font-family: "ProximaNova-ExtrabldIt";
+  font-style: italic;
+  font-weight: 900;
+  font-size: 25px;
+  line-height: 30px;
+
+  color: $textMainColor;
+  text-transform: uppercase;
+}
+
+.text {
+  font-family: "ProximaNova-Light";
+
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 20px;
+
+  color: $textMainColor;
+  &--right {
+    text-align: right;
+    @include media(max, lg) {
+      text-align: center;
+    }
+  }
+}
+.btn {
+  @include flex(center, center);
+
+  background: $accentColor;
+  border-radius: 21px;
+  font-family: "ProximaNova-Extrabld";
+  padding: 0 15px;
+  font-weight: 800;
+  font-size: 13px;
+  line-height: 13px;
+
+  text-transform: uppercase;
+
+  color: $textMainColor;
+  &:hover {
+    background: $secondColor;
+    a, span {
+      background: linear-gradient(84.14deg, #7200ff -0.11%, #ff0202 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+  }
+}

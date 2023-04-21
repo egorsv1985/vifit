@@ -1,0 +1,54 @@
+<div id="callback" aria-hidden="true" class="popup">
+  <div class="popup__wrapper">
+    <div class="popup__content">
+      <button data-close type="button" class="popup__close">
+        <svg
+          width="45"
+          height="46"
+          viewBox="0 0 45 46"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M22.4999 24.6545L32.7543 34.9117L34.7455 32.9232L24.4883 22.666L34.7455 12.4117L32.7571 10.4204L22.4999 20.6776L12.2455 10.4204L10.2571 12.4117L20.5115 22.666L10.2571 32.9204L12.2455 34.9117L22.4999 24.6545Z"
+            fill="white"
+          />
+        </svg>
+      </button>
+
+    
+
+      <form action="#" class="popup__form form">
+        <div class="form__body">
+          <div class="form__box">
+            <input
+              type="text"
+              id="name"
+              name="form[]"
+              data-error="Ошибка"
+              placeholder=""
+              class="form__input"
+              required
+            />
+            <label for="name" class="form__label">Имя</label>
+          </div>
+          <div class="form__box">
+            <input
+              type="tel"
+              id="tel"
+              name="form[]"
+              data-error="Ошибка"
+              placeholder=""
+              class="form__input"
+              required
+            />
+            <label for="tel" class="form__label">Ваш телефон</label>
+          </div>
+          <button type="submit" class="form__btn btn">Отправить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

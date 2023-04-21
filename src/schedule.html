@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+  @@include('html/_head.htm',{ "title":"Расписание" })
+
+  <body>
+    <div class="wrapper wrapper-schedule">
+      @@include('html/_header-shedule.htm',{})
+      <main class="page">
+        <section class="schedule">
+          <div class="container">
+            <div
+              id="mobifitness_main_cont"
+              style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 165px 0"
+            ></div>
+          </div>
+        </section>
+      </main>
+
+      @@include('html/_footer.htm',{})
+    </div>
+    @@include('html/_popup.htm',{}) @@include('html/_js.htm',{})
+     <script type="text/javascript">
+	(function () {
+	  var f = function () {
+		var script = document.createElement("script");
+		script.type = "text/javascript";
+		script.async = true;
+		script.setAttribute("id", "mobifitness_widget_script");
+		script.setAttribute("data-id", "594321");
+		script.setAttribute("data-colored", 1);
+		script.setAttribute("data-lines", 1);
+		script.setAttribute("data-desc", 1);
+		script.setAttribute("data-language", "ru");
+		script.setAttribute("data-category_filter", 2);
+		script.setAttribute("data-activity_filter", 2);
+		script.setAttribute("data-render_type", 0);
+		script.setAttribute("data-club", "655");
+		script.src =
+		  (document.location.protocol == "https:" ? "https:" : "http:") +
+		  "//mobifitness.ru/js/widget/widget.js";
+		document.getElementsByTagName("head")[0].appendChild(script);
+	  };
+	  if (window.opera == "[object Opera]") {
+		document.addEventListener("DOMContentLoaded", f, false);
+	  } else {
+		f();
+	  }
+	})();
+  </script>
+  
+</body>
+</html>

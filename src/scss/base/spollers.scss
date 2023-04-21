@@ -1,0 +1,188 @@
+// Базовые стили спойлеров
+// Сниппет (HTML): spoller
+
+// Блок со спойлерами
+.spollers {
+
+	// .spollers__item
+	&__item {}
+
+	// Заголовок спойлера
+	// .spollers__title
+	&__title {
+
+		font-family: 'OnestMedium';
+
+		font-size: 14px;
+		line-height: 140%;
+
+		color: #FFFFFF;
+		width: 100%;
+		position: relative;
+
+
+		padding: 10px 0 10px 20px;
+
+		background: #53CD8B;
+		border-radius: 40px;
+		margin-bottom: 2px;
+		@include media (min, lg) {
+
+			font-size: 22px;
+			padding: 25px 0 25px 60px;
+
+		}
+
+
+		._spoller-init & {
+			cursor: pointer;
+
+
+
+			&::before,
+			&::after {
+				@include pseudo;
+				@include pos (absolute, $top: 50%, $right: 17px);
+				@include wh (8px, 2px);
+
+				background-color: #fff;
+
+				transition: transform 0.5s ease 0s;
+
+				@include media (min, lg) {
+					height: 3px;
+					right: 58px;
+					width: 15px;
+
+				}
+			}
+
+			&::before {
+				transform: translate(-75%, -50%) rotate(40deg);
+			}
+
+			&::after {
+				transform: translate(0, -50%) rotate(-40deg);
+			}
+
+			&._spoller-active {
+				&::before {
+					transform: translateX(-75%) rotate(-40deg);
+				}
+
+				&::after {
+					transform: rotate(40deg);
+				}
+			}
+		}
+
+	}
+
+	&__title {
+
+		cursor: pointer;
+
+		&::before {
+			transition: all 0.3s ease 0s;
+			font-size: rem(19);
+			color: #141414;
+		}
+
+		&._spoller-active {
+
+
+			&::before {
+				transform: rotate(135deg);
+			}
+		}
+
+
+	}
+
+	// Контент спойлера
+	// .spollers__body
+	&__body {
+
+
+		margin-bottom: 2px;
+
+		position: relative;
+		padding: 10px 20px 16px;
+
+		@include media (min, lg) {
+			padding: 20px 95px 16px 60px;
+
+		}
+
+		&::before {
+			@include pseudo;
+			@include wh(100%, 200%);
+			background-color: #fff;
+			@include pos (absolute, $top: 50%, $left: 50%);
+			transform: translate(-50%, -50%);
+			z-index: -1;
+			border-radius: 20px;
+
+		}
+		&:last-child::before{
+			height: 100%;
+		}
+
+
+	}
+
+	// .spollers__grid
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+
+
+	// .spollers__box
+	&__box {
+
+
+		@include flex ($flex-direction: column);
+		line-height: 200%;
+
+
+		color: #0F2F2E;
+
+		&:first-child {
+			text-align: left;
+		}
+
+		&:nth-child(2) {
+			text-align: center;
+
+
+			@include media (min, lg) {
+
+				text-align: right;
+			}
+		}
+
+		&:last-child {
+			text-align: right;
+
+			@include media (min, lg) {
+				text-align: center;
+
+			}
+		}
+	}
+
+	// .spollers__text
+	&__text {
+		font-size: 8px;
+		line-height: 200%;
+		text-align: inherit;
+
+		color: #0F2F2E;
+
+		@include media (min, lg) {
+			font-size: 16px;
+		}
+	}
+}

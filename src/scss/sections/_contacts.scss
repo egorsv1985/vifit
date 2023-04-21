@@ -1,0 +1,120 @@
+.contacts {
+  position: relative;
+  padding: 120px 0 50px;
+  // .contacts__wrapper
+  &__wrapper {
+    @include flex(space-between, $flex-wrap: wrap);
+    gap: 20px;
+  }
+  // .contacts__title
+  &__title {
+    margin-bottom: 40px;
+    &::after {
+      left: -22%;
+    }
+  }
+  // .contacts__content
+  &__content {
+    @include flex($flex-direction: column);
+  }
+  // .contacts__box-content
+  &__box-content {
+    @include flex($flex-direction: column);
+  }
+  // .contacts__list
+  &__list {
+    @include flex(space-between, $flex-direction: column);
+    padding-left: 23px;
+    max-width: 385px;
+    margin-bottom: 15px;
+  }
+  // .contacts__item
+  &__item {
+    font-family: "ProximaNova-Regular";
+
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    position: relative;
+    &::before {
+      @include pseudo;
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &--time {
+      &::before {
+        background-image: url(../img/icons/time-contacts.svg);
+        @include wh(12px);
+      }
+    }
+    &--tel::before {
+      background-image: url(../img/icons/tel-contacts.svg);
+      @include wh(11px);
+    }
+    &--viber {
+      margin-bottom: 15px;
+      &::before {
+        background-image: url(../img/icons/viber-contacts.svg);
+        @include wh(12px);
+      }
+    }
+    &--map {
+      margin-bottom: 10px;
+      &::before {
+        background-image: url(../img/icons/map-contacts.svg);
+        @include wh(11px, 13px);
+        top: 20%;
+      }
+    }
+  }
+
+  // .contacts__social-list
+  &__social-list {
+    @include flex(space-between, center);
+    gap: 50px;
+    max-width: 130px;
+    padding-left: 23px;
+    margin-bottom: 50px;
+  }
+  // .contacts__social-item
+  &__social-item {
+    transition: all .2s ease-in-out;
+    &:hover{
+      background-color: #E8BA18;
+      
+    }
+  }
+  // .contacts__social-link
+  &__social-link {
+  }
+  // .contacts__img
+  &__img {
+  }
+  // .contacts__btn
+  &__btn {
+    --btn-font-size: clamp(25px, 1.49vw + 19.63px, 45px);
+    @include flex(center, center);
+    padding: 15px 18px;
+    max-width: 656px;
+    height: 78px;
+    width: 100%;
+    background: linear-gradient(90deg, #c49c6b 39.11%, #f8d3a6 128.36%);
+    border-radius: 33px 0px;
+    font-family: "ProximaNova-Extrabld";
+
+    font-weight: 800;
+    font-size: var(--btn-font-size);
+    line-height: var(--btn-font-size);
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background: #3a3a3a;
+    }
+  }
+  // .contacts__map
+  &__map {
+    border-radius: 15px;
+    overflow: hidden;
+  }
+}

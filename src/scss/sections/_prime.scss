@@ -1,0 +1,215 @@
+.prime {
+  padding: 120px 0 300px;
+  background-color: $thirdColor;
+
+  // .prime__box-img
+  &__box-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  // .prime__img
+  &__img {
+  }
+  // .prime__content
+  &__content {
+    padding-top: 170px;
+    position: relative;
+    z-index: 2;
+    &::before {
+      @include pseudo;
+      @include background(url("@img/prime.png"));
+      @include wh(918px, 541px);
+      position: absolute;
+      right: 5%;
+      top: 47%;
+      
+    }
+    &::after {
+      @include pseudo;
+      @include background(url("@img/prime1.png"));
+      @include wh(1438px, 905px);
+      position: absolute;
+      left: -12%;
+      top: -25%;
+      z-index: -1;
+    }
+  }
+  // .prime__title
+  &__title {
+    margin-bottom: 35px;
+  }
+  // .prime__form
+  &__form {
+  }
+  .form {
+    @include flex(space-between, $flex-direction: column);
+    gap: 20px;
+
+    // .form__body
+    &__body {
+      height: 100%;
+      width: 100%;
+      border: none;
+      display: flex;
+
+      gap: 16px;
+      position: relative;
+      @include media(max, lg) {
+        flex-direction: column;
+      }
+    }
+    // .form__box
+    &__box {
+      position: relative;
+    }
+    // .form__input
+    &__input {
+      width: 275px;
+      height: 60px;
+      border-radius: 15px;
+      @include media(max, lg) {
+        height: 60px;
+        width: 80%;
+      }
+      @include media(max, sm) {
+        width: 100%;
+      }
+
+      font-family: "ProximaNova-Light";
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 20px;
+      /* identical to box height */
+
+      color: $textAccentColor;
+
+      padding: 0 20px;
+      position: relative;
+
+      &::placeholder {
+        font-size: 20px;
+        line-height: 20px;
+
+        color: $textAccentColor;
+      }
+
+      &:focus-visible,
+      &:focus,
+      &:active {
+        border: 1px solid #000;
+      }
+
+      &:focus,
+      &:focus-visible {
+        outline-color: #000;
+      }
+
+      &:focus ~ .form__label,
+      &:valid ~ .form__label {
+        top: -20px;
+        color: $textMainColor;
+      }
+    }
+    // .form__label
+    &__label {
+      font-family: "ProximaNova-Light";
+      font-size: 20px;
+      line-height: 20px;
+
+      color: $textAccentColor;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 20px;
+    }
+    // .form__btn
+    &__btn {
+      width: 185px;
+      height: 60px;
+      transition: all 0.2s ease-in-out;
+
+      border-radius: 33px 0px;
+      span {
+        font-size: 38px;
+        line-height: 38px;
+      }
+
+      &:hover {
+      }
+      @include media(max, lg) {
+        height: 60px;
+        width: 80%;
+      }
+      @include media(max, sm) {
+        width: 100%;
+      }
+
+      @media (any-hover: hover) {
+        &:hover {
+        }
+      }
+    }
+    // .form__checkbox
+    &__checkbox {
+      margin-bottom: rem(19);
+      max-width: 525px;
+      
+    }
+  }
+
+  .checkbox {
+    // .checkbox__input
+    &__input {
+      display: none;
+    }
+    // .checkbox__label
+    &__label {
+      display: flex;
+      flex-direction: row-reverse;
+      position: relative;
+      justify-content: flex-end;
+      align-items: center;
+
+      &::before {
+        @include pseudo;
+        position: absolute;
+        left: 0px;
+        top: 2px;
+        @include wh(22px);
+        @include background(url("@img/icons/check.svg"));
+
+        opacity: 0;
+        transition: all 0.3s ease 0s;
+      }
+
+      &::after {
+        content: "";
+        align-self: flex-start;
+        flex: 0 0 41px;
+        @include wh(41px);
+
+        border: 1px solid #000;
+        background-color: $secondColor;
+        margin-right: rem(10);
+    
+
+      }
+    }
+    // .checkbox__text
+    &__text {
+      font-family: "ProximaNova-Light";
+
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 15px;
+
+      color: $textMainColor;
+      max-width: 200px;
+    }
+  }
+  .checkbox__input:checked + .checkbox__label::before {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,130 @@
+
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  
+
+  // .header__wrapper
+  &__wrapper {
+    @include flex(space-between, center, $flex-direction: column);
+    
+    
+  }
+  // .header__top
+  &__top {
+    padding: 20px 0;
+    width: 100%;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+    background-color: $mainColor;
+  }
+  // .header__top-wrapper
+  &__top-wrapper {
+    @include flex(space-between, center);
+  
+  }
+  // .header__logo
+  &__logo {
+    --logo-margin-right: clamp(30px, 11.36vw + -83.64px, 80px);
+    margin-right: var(--logo-margin-right);
+    @include media (max, sm) {
+      display: none;
+    }
+   
+  }
+  // .header__box
+  &__box {
+    @include flex(space-between, $flex-direction: column);
+    position: relative;
+    @include media (max, sm) {
+      display: none;
+    }
+    &::before{
+      @include pseudo;
+      position: absolute;
+
+      top: 50%;
+      transform: translateY(-50%);
+
+      left: -35px;
+    }
+    &--time {
+     
+      --time-margin-right: clamp(30px, 6.82vw + -38.18px, 60px);
+      margin-right: var(--time-margin-right);
+      @include media (max, lg) {
+        display: none;
+      }
+      &::before {
+      
+        background-image: url(../img/icons/time.svg);
+        @include wh(29px);
+      }
+    }
+    &--map {
+      @include media (max, lg) {
+        display: none;
+      }
+      &::before {
+      
+        background-image: url(../img/icons/map.svg);
+        @include wh(27px, 32px);
+      }
+    }
+  }
+  // .header__box--time
+  &__box--time {
+  }
+  // .header__span
+  &__span {
+    font-family: "ProximaNova-Light";
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 18px;
+
+    color: $textMainColor;
+  }
+  // .header__box--map
+  &__box--map {
+  }
+  // .header__btn
+  &__btn {
+    height: 29px;
+  }
+  // .header__link
+  &__link {
+    font-family: "ProximaNova-Bold";
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+
+    color: $textMainColor;
+  }
+  // .header__social-list
+  &__social-list {
+    @include flex(space-between, center);
+    align-self: center;
+    gap: 12px;
+  }
+  // .header__social-item
+  &__social-item {
+  }
+  // .header__social-link
+  &__social-link {
+  }
+  // .header__burger
+  &__burger {
+  }
+  // .header__bottom
+  &__bottom {
+    background-color: transparent;
+   padding: 10px 0;
+    width: 100%;
+    @include media (max, lg) {
+      display: none;
+    }
+  }
+  // .header__nav
+  &__nav {
+  }
+}

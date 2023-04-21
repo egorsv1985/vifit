@@ -1,0 +1,145 @@
+
+.cards {
+  position: relative;
+  padding: 50px 0;
+
+  // .cards__title
+  &__title {
+    margin-bottom: 38px;
+  }
+  // .cards__content
+  &__content {
+    padding: 0 48px;
+    @include flex(space-between, center, wrap);
+    gap: 40px;
+    max-width: 1700px;
+    margin: 0 auto;
+    @include media (max, xl) {
+      justify-content: center;
+    }
+  }
+  // .cards__box
+  &__box {
+    background: rgba(0, 0, 0);
+    max-width: 506px;
+    max-height: 765px;
+    position: relative;
+    margin-top: 50px;
+    border-radius: 30px 30px 0px 0px;
+    @include media (max, lg) {
+      max-width: 100vw;
+      max-height: 100vh;
+    }
+    &::before {
+      @include pseudo;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(3px);
+      width: 100%;
+      height: 100%;
+      max-width: 506px;
+      max-height: 765px;
+      position: absolute;
+      border-radius: 30px 30px 0px 0px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+    &:hover{
+      margin-top: 0;
+      background: linear-gradient(90deg, #c8a06f 0%, #f8d6a9 100%);
+      .cards__btn{
+        background: #010101;
+        width: 372px;
+        transition: all 0.2s ease-in-out;
+    &:hover {
+      background: #3a3a3a;
+    }
+      }
+      .cards__img--active{
+        display: block;
+      }
+      .cards__img {
+        display: none;
+      }
+      &::before{
+        display: none;
+      }
+    }
+  }
+  // .cards__item
+  &__item {
+    @include flex($align-items: center, $flex-direction: column);
+    position: relative;
+
+    max-width: 506px;
+    max-height: 765px;
+
+    border-radius: 30px 30px 0px 0px;
+    border: 3px solid #eecf60;
+
+    padding: 90px 28px 40px;
+  }
+  // .cards__subtitle
+  &__subtitle {
+    font-family: "micra-bold";
+
+    font-weight: 700;
+    line-height: 26px;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  // .cards__text
+  &__text {
+    font-family: "ProximaNova-Regular";
+
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    margin-bottom: 110px;
+  }
+  // .cards__box-img
+  &__box-img {
+    margin-bottom: 75px;
+  }
+  // .cards__img
+  &__img {
+    &--active {
+      display: none;
+    }
+  }
+  // .cards__img--active
+  &__img--active {
+  }
+  // .cards__btn
+  &__btn {
+    width: 313px;
+
+    @include flex(center, center);
+
+    
+    font-family: "ProximaNova-Extrabld";
+
+    font-weight: 800;
+    font-size: 45px;
+    line-height: 45px;
+
+    height: 78px;
+    background: linear-gradient(90deg, #c8a06f 0%, #f8d6a9 100%);
+    border-radius: 33px 0px;
+  }
+  // .cards__ellipse
+  &__ellipse {
+    position: absolute;
+    width: 627px;
+    height: 627px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #fff;
+    filter: blur(150px);
+    z-index: -1;
+  }
+}

@@ -1,0 +1,285 @@
+//Подключение шрифта
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff2") format("woff2"), url("../fonts/#{$file_name}.woff") format("woff");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+//Percent
+@function percent($px, $from) {
+	$result: math.div($px, $from) * 100%;
+	@return $result;
+}
+//REM
+@function rem($px) {
+	$result: math.div($px, 16) + rem;
+	@return $result;
+}
+//EM
+@function em($px, $current: 16) {
+	$result: math.div($px, $current) + em;
+	@return $result;
+}
+//Адаптивное свойство
+
+//Currency
+@mixin currency($sym) {
+	&::after {
+		content: "#{$sym}";
+	}
+}
+
+// Grids
+@mixin gridCards($type: fit, $min: 280px, $max: 1fr, $gap: 30px) {
+	display: grid;
+	gap: $gap;
+	grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
+}
+
+@mixin adaptiveValue($property, $startSize, $minSize, $widthFrom: $containerWidth, $widthTo: $minWidth, $keepSize: 0) {
+	@if ($widthFrom == $containerWidth and $maxWidthContainer == 0) {
+		$widthFrom: $maxWidth;
+	}
+	@if ($minSize <= 0) {
+		$minSize: 0.0001;
+	}
+	@if ($startSize <= 0) {
+		$startSize: 0.0001;
+	}
+
+	// Брейк-поинты в EM
+	$widthFromMedia: em($widthFrom);
+	$widthToMedia: em($widthTo);
+
+	// Формула плавающего значения
+	// Источник: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+	$slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
+	$yIntersection: -$widthTo * $slope + $minSize;
+	$flyValue: #{rem($yIntersection)}" + " #{$slope * 100}vw;
+
+	// Получение значения свойства
+	$propertyValue: #{"clamp(" rem($minSize) "," $flyValue "," rem($startSize) ")"};
+	// Если отрицательные значения
+	@if ($minSize > $startSize) {
+		$propertyValue: #{"clamp(" rem($startSize) "," $flyValue "," rem($minSize) ")"};
+	}
+
+	@if $widthFrom == $containerWidth or $widthFrom == $maxWidth or $keepSize == 1 or $keepSize == 2 {
+		@media (min-width: $widthFromMedia) {
+			#{$property}: rem($startSize);
+		}
+	}
+	@media (min-width: $widthToMedia) and (max-width: $widthFromMedia) {
+		#{$property}: $propertyValue;
+	}
+	@if $widthTo == $minWidth or $keepSize == 1 or $keepSize == 3 {
+		@media (max-width: $widthToMedia) {
+			#{$property}: rem($minSize);
+		}
+	}
+}
+@mixin flex ($justify-content: null, $align-items: null, $flex-wrap:null, $flex-direction: null) {
+	display: flex;
+	justify-content: $justify-content;
+	align-items: $align-items;
+	flex-wrap: $flex-wrap;
+	flex-direction: $flex-direction;
+}
+
+@mixin text($fontSize, $fontWeight, $lineHeight, $color) {
+	font-size: $fontSize;
+	font-weight: $fontWeight;
+	line-height: $lineHeight;
+	color: $color;
+  }
+
+@mixin pseudo ($content: '') {
+	content: $content;
+	display: block;
+}
+
+@mixin pos ($position: null, $top: null, $bottom: null, $left: null, $right: null) {
+	position: $position;
+	top: $top;
+	bottom: $bottom;
+	left: $left;
+	right: $right;
+}
+
+
+@mixin font ($font-size: null, $line-height: null, $font-weight: null, $text-align: null, $text-transform: null) {
+	font-size: $font-size;
+	line-height: $line-height;
+	text-transform: $text-transform;
+	font-weight: $font-weight;
+	text-align: $text-align;
+}
+
+@mixin background ($img) {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-image: $img;
+}
+
+
+@mixin border($border-width: null, $border-style: solid, $border-color: null) {
+	border-width: $border-width;
+	border-style: $border-style;
+	border-color: $border-color;
+}
+
+@mixin colors($text, $background, $border) {
+	color: $text;
+	background-color: $background;
+	border-color: $border;
+}
+
+@mixin wh ($width: $width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin wh-px ($width: $width, $height: $width) {
+	width: #{$width}px;
+	height: #{$height}px;
+}
+
+
+
+@mixin adaptive-font($maxSizeFont, $minSizeFont, $maxWidth, $minWidth) {
+	$sizeFont: $maxSizeFont - $minSizeFont;
+	$maxWidth: $maxWidth - $minWidth;
+	font-size: calc(#{$minSizeFont + px} + #{$sizeFont} * ((100vw - #{$minWidth + px}) / #{$maxWidth}));
+}
+
+/* -----------------------------------------------------------------
+                       @media
+1-ый параметр $min-max принимает 3 аргумента min, max, min-max.
+   min       - для mobil @media
+   max       - для dectop @media
+   min-max   - для промежутка между mobil-dectop @media
+2-ой параметр $breakpoint_1 принимает 1-ин аргумент.
+   ключ      - хранятся в созданной карте $grid_breakpoints(xxl, xl, lg, md , sm...)
+3-ий параметр $breakpoint_2 принимает 1-ин аргумент, является не обязательным параметром.
+   ключ      - хранятся в созданной карте $grid_breakpoints(xxl, xl, lg, md , sm...) нужен для 1-ого параметра 3 аргумента.
+ Дополнение:
+   map-has-key  - Нужен для проверки ключа в карте, если ключа указанного нет то условие не выполняется.
+   map-get      - Нужен для использование ключей из карты.
+Пример:
+   @include media(max, xxl) { display: none;}
+   @include media(min, xxl) { display: none;}
+   @include media(min-max, mn-lg, mx-xxl) { display: none;}
+Одиночные брекпоинты:
+   @include media(max, 870px,) { display: none;}
+   @include media(min, 870px,) { display: none;}
+   @include media(min-max, 870px, 1000px) { display: none;}
+--------------------------------------------------------------------*/
+
+@mixin media($min-max, $breakpoint_1, $breakpoint_2: none) {
+
+	@if map-has-key($grid_breakpoints, $breakpoint_1) and $min-max=="max" {
+
+		@media only screen and (#{$min-max}-width: #{map-get( $grid_breakpoints, $breakpoint_1)}) {
+			@content;
+		}
+
+	}
+
+	@else if map-has-key($grid_breakpoints, $breakpoint_1) and $min-max=='min' {
+
+		@media only screen and (#{$min-max}-width: #{map-get( $grid_breakpoints, $breakpoint_1)}) {
+			@content;
+		}
+
+	}
+
+	@else if map-has-key($grid_breakpoints, $breakpoint_1) and $min-max=='min-max' {
+
+		@media only screen and (min-width: #{map-get( $grid_breakpoints, $breakpoint_1)}) and (max-width: #{map-get( $grid_breakpoints, $breakpoint_2)}) {
+			@content;
+		}
+
+	}
+
+	@else if $min-max=='min-max' {
+
+		@media only screen and (min-width: $breakpoint_1) and (max-width: $breakpoint_2) {
+			@content;
+		}
+
+	}
+
+	@else {
+
+		@media only screen and (#{$min-max}-width: $breakpoint_1) {
+			@content;
+		}
+
+	}
+
+}
+
+@mixin font-face($name, $file, $weight: 400, $style: normal) {
+	@font-face {
+		font-family: "#{$name}";
+		src: local("#{$file}"),
+		url('../fonts/#{$file}.woff2') format('woff2'),
+		url('../fonts/#{$file}.woff') format('woff');
+		font-weight: $weight;
+		font-style: $style;
+		font-display: swap;
+	}
+}
+
+@mixin bg ($size:"contain", $position: "center") {
+	background-size: #{$size};
+	background-position: #{$position};
+	background-repeat: no-repeat;
+}
+
+@mixin btn_anim($scaleMax:1.05, $scaleMin:0.95) {
+	transform-origin: center center;
+	transition: all ease-out 240ms;
+
+	&:hover {
+		transform: scale(#{$scaleMax});
+	}
+
+	&:focus {
+		outline: transparent;
+	}
+
+	&:focus-visible {
+		transform: scale(#{$scaleMax}) translateY(-5%);
+	}
+
+	&:active {
+		transform: scale(#{$scaleMin});
+	}
+}
+
+@mixin no-btn ($display:"inline-block") {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background-color: transparent;
+	border-radius: 0;
+	cursor: pointer;
+	appearance: none;
+	display: #{$display};
+}
+
+@mixin transit ($tr:0.24) {
+	transition: all #{$tr}s;
+}
+
+@mixin container($max-width:"120rem", $padding:"2rem") {
+	width: 100%;
+	max-width: #{$max-width};
+	padding: 0 #{$padding};
+	margin: 0 auto;
+}

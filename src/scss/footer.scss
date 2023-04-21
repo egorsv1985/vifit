@@ -1,0 +1,34 @@
+.footer {
+  padding-bottom: 70px;
+  // .footer__wrapper
+  &__wrapper {
+    @include flex(space-between, center);
+    @include media(max, lg) {
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+    }
+  }
+  // .footer__box
+  &__box {
+    @include flex(space-between, $flex-direction: column);
+    @include media(max, lg) {
+      justify-content: center;
+      gap: 10px;
+    }
+  }
+  // .footer__text
+  &__text {
+    font-family: "Mulish-Regular";
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 113%;
+    letter-spacing: 0.04em;
+    @include media(max, lg) {
+      text-align: center;
+    }
+  }
+  // .footer__logo
+  &__logo {
+  }
+}

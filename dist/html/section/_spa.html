@@ -1,0 +1,109 @@
+<section class="spa" id="spa">
+	<div class="spa__wrapper">
+		<h2 class="spa__title title">SPA</h2>
+		<div class="spa__content">
+			<div class="spa__wrap">
+				<div class="spa__box-img">
+					<img src="img/spa-with-flowers.png" alt="spa" class="spa__img" />
+				</div>
+				<ul class="spa__list">
+					<li class="spa__item">
+						<h3 class="spa__subtitle subtitle">SPA ПРОЦЕДУРЫ</h3>
+						<p class="spa__text text">
+							Комплекс программ, направленных на улучшение здоровья, внешнего
+							вида с помощью водных процедур, гидромассажа, также косметических
+							процедур.
+						</p>
+					</li>
+					<li class="spa__item">
+						<h3 class="spa__subtitle subtitle">банный комплекс</h3>
+						<p class="spa__text text">
+							Банный комплекс в ReСтарт включает: фитобочку, душ шарк, русскую
+							парную, мини бассейн с джакузи
+						</p>
+					</li>
+					<li class="spa__item">
+						<h3 class="spa__subtitle subtitle">LPG МаССАЖ</h3>
+						<p class="spa__text text">
+							Массаж может использоваться как для лечения целлюлита и похудения,
+							так и для борьбы с морщинами.
+						</p>
+					</li>
+					<li class="spa__item">
+						<h3 class="spa__subtitle subtitle">СОЛЯРИЙ</h3>
+						<p class="spa__text text">
+							Наш клуб предлагает Вам вертикальный солярий, который подарит
+							ухоженное тело и приятный цвет кожи
+						</p>
+					</li>
+				</ul>
+			</div>
+
+			<p class="spa__text spa__text--big">
+				еще сомневаешься?<br />
+				запишись на гостевой визит
+			</p>
+		</div>
+	</div>
+	<div class="swiper spaSwiper">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<div class="swiper__item">
+					<div class="swiper__box-img">
+						<img class="swiper__img" src="img/trainer3.png" alt="trainer" />
+					</div>
+					<div class="swiper__box-content">
+						<p class="swiper__name">Имя Фамилия</p>
+						<p class="swiper__job">Должность</p>
+					</div>
+					<a data-popup="#callback" href="#callback" role="button" class="swiper__btn btn">записаться к тренеру</a>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="swiper__item">
+					<div class="swiper__box-img">
+						<img class="swiper__img" src="img/trainer1.png" alt="trainer" />
+					</div>
+					<div class="swiper__box-content">
+						<p class="swiper__name">Имя Фамилия</p>
+						<p class="swiper__job">Должность</p>
+					</div>
+					<a data-popup="#callback" href="#callback" role="button" class="swiper__btn btn">записаться к тренеру</a>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="swiper__item">
+					<div class="swiper__box-img">
+						<img class="swiper__img" src="img/trainer3.png" alt="trainer" />
+					</div>
+					<div class="swiper__box-content">
+						<p class="swiper__name">Имя Фамилия</p>
+						<p class="swiper__job">Должность</p>
+					</div>
+					<a data-popup="#callback" href="#callback" role="button" class="swiper__btn btn">записаться к тренеру</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="spa__buttons">
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+	</div>
+	<div class="spa__ellipse1"></div>
+	<div class="spa__ellipse2"></div>
+	<div class="spa__ellipse3"></div>
+	<div class="spa__ellipse4"></div>
+</section>
+
+<!-- Initialize Swiper -->
+<script>
+	var swiper = new Swiper(".spaSwiper", {
+		loop: true,
+		slidesPerView: 1,
+		spaceBetween: 55,
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev",
+		},
+	});
+</script>

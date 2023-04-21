@@ -1,0 +1,243 @@
+.kids {
+  position: relative;
+  // .kids__wrapper
+  &__wrapper {
+    @include flex(space-between, $flex-direction: column);
+    gap: 215px;
+
+    @include media(max, lg) {
+      gap: 50px;
+    }
+  }
+  // .kids__title
+  &__title {
+    &::after {
+      left: -10%;
+    }
+  }
+  // .kids__content
+  &__content {
+    position: relative;
+    @include flex(center, center);
+    margin-left: 70px;
+    @include media(max, lg) {
+      flex-direction: column-reverse;
+      gap: 30px;
+      margin-left: 0;
+    }
+  }
+  // .kids__box
+  &__box {
+    @include flex(space-between, $flex-direction: column);
+    gap: 15px;
+    max-width: 213px;
+    position: absolute;
+    &:nth-child(1) {
+      right: 20%;
+      top: -18%;
+      @include media(max, lg) {
+        position: relative;
+      }
+    }
+    &:nth-child(2) {
+      left: 15%;
+      bottom: 20%;
+      @include media(max, 1000px) {
+        left: 0;
+      }
+      @include media(max, lg) {
+        position: relative;
+      }
+    }
+    &:nth-child(3) {
+      right: 10%;
+      bottom: 27%;
+      @include media(max, 1100px) {
+        right: 3%;
+        bottom: 10%;
+      }
+      @include media(max, 920px) {
+        bottom: 20%;
+      }
+      @include media(max, lg) {
+        position: relative;
+      }
+    }
+    &:nth-child(4) {
+      top: -5%;
+      left: 4%;
+      @include media(max, 1200px) {
+        left: 15%;
+        top: -25%;
+      }
+      @include media(max, 920px) {
+      }
+      @include media(max, lg) {
+        position: relative;
+      }
+    }
+
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  // .kids__box-wrap
+  &__box-wrap {
+    @include media(max, lg) {
+      @include flex(space-between, center);
+      gap: 10px;
+      overflow-x: auto;
+      .kids__box {
+        position: relative;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+      }
+    }
+  }
+
+  // .kids__text
+  &__text {
+    font-family: "ProximaNova-BlackIt";
+
+    font-style: italic;
+    font-weight: 900;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  // .kids__box-img
+  &__box-img {
+  }
+  // .kids__img-box
+  &__img-box {
+    img,
+    picture {
+      width: 100%;
+      height: 100%;
+    }
+    &--absolute {
+      position: absolute;
+      left: 23%;
+      top: 0%;
+      z-index: -1;
+      @include media(max, xl) {
+        left: 20%;
+      }
+      @include media(max, 1200px) {
+        left: 16%;
+      }
+      @include media(max, 1100px) {
+        left: 10%;
+      }
+      @include media(max, lg) {
+        display: none;
+      }
+    }
+  }
+  // .kids__img
+  &__img {
+  }
+  // .kids__svg
+  &__svg {
+    position: absolute;
+    &:nth-child(4) {
+      top: 26%;
+      right: 24%;
+      @include media(max, 1150px) {
+        display: none;
+      }
+    }
+    &:nth-child(5) {
+      left: 43%;
+      top: -10%;
+      @include media(max, 1250px) {
+        display: none;
+      }
+    }
+    &:nth-child(6) {
+      right: 9%;
+      bottom: -2%;
+      @include media(max, 1250px) {
+        display: none;
+      }
+    }
+    &:nth-child(7) {
+      top: 43%;
+      left: 5%;
+      @include media(max, 1000px) {
+        display: none;
+      }
+    }
+    &:nth-child(8) {
+      bottom: 3%;
+      left: 4%;
+      @include media(max, 1100px) {
+        display: none;
+      }
+    }
+    &:nth-child(9) {
+      top: 20%;
+      left: 43%;
+      @include media(max, 1100px) {
+        display: none;
+      }
+    }
+    &:nth-child(10) {
+      top: 7%;
+      right: 11%;
+      @include media(max, lg) {
+        display: none;
+      }
+    }
+    &:nth-child(11) {
+      top: -9%;
+      left: 35%;
+      @include media(max, 920px) {
+        display: none;
+      }
+    }
+  }
+  // .kids__ellipse1
+  &__ellipse1 {
+    position: absolute;
+    width: 516px;
+    height: 516px;
+    left: -4%;
+    bottom: -12%;
+    background-color: rgba(232, 186, 24, 0.7);
+    filter: blur(150px);
+    z-index: -1;
+    border-radius: 50%;
+  }
+  // .kids__ellipse2
+  &__ellipse2 {
+    position: absolute;
+    width: 557px;
+    height: 557px;
+    right: 0;
+    top: -10%;
+    border-radius: 50%;
+
+    background-color: rgba(234, 0, 70, 0.7);
+    filter: blur(150px);
+    z-index: -1;
+  }
+  // .kids__ellipse3
+  &__ellipse3 {
+    position: absolute;
+    width: 393px;
+    height: 393px;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+    background-color: #fff;
+    filter: blur(150px);
+    z-index: -1;
+  }
+}

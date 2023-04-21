@@ -1,0 +1,56 @@
+.popup {
+  // .popup__wrapper
+  &__wrapper {
+  }
+  // .popup__content
+  &__content {
+    background-color: $accentColor;
+    border-radius: 40px;
+  }
+  // .popup__close
+  &__close {
+    @include pos(absolute, $top: 25px, $right: 10px);
+
+    svg {
+      @include wh(30px);
+    }
+  }
+  // .popup__form
+  &__form {
+  }
+  .form {
+    // .form__body
+    &__body {
+      flex-direction: column;
+    }
+    // .form__box
+    &__box {
+    }
+    // .form__input
+    &__input {
+      border-color: #fff;
+      width: 100%;
+
+     
+      &:focus ~ .form__label,
+      &:valid ~ .form__label {
+        top: 50%;
+        opacity: 0;
+      }
+
+      &::placeholder {
+        font-size: 16px;
+        line-height: 20px;
+
+        color: #fff;
+      }
+    }
+    // .form__label
+    &__label {
+    }
+    // .form__btn
+    &__btn {
+      width: 100%;
+    }
+  }
+}
