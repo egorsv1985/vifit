@@ -160,16 +160,15 @@ picture {
 // components
 
 @import "./components/burger";
-// @import "./components/swiper";
-// @import "./components/social";
+@import "./components/swiper";
+@import "./components/social";
 @import "./components/scroll-header";
 
 // sections
 
 @import "./sections/prime";
-// @import "./sections/gallery";
-// @import "./sections/about";
-// @import "./sections/train";
+@import "./sections/about";
+@import "./sections/gallery";
 // @import "./sections/trainer";
 // @import "./sections/contacts";
 // @import "./sections/cards";

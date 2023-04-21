@@ -1,62 +1,160 @@
-<!-- <section class="gallery" id="gallery">
+<section class="gallery" id="gallery">
   <div class="container gallery__wrapper">
-    <div class="gallery__content">
-      <h2 class="gallery__title title">Галерея</h2>
-      <p class="gallery__text text">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-        ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-        dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-        ultricies nec, pellentesque eu, pretium quis, sem.
-      </p>
-    </div>
-    <a class="gallery__btn btn" href="#about" role="button"
-      >ПОДРОБНЕЕ О КЛУБЕ</a
-    > -->
-  <!-- </div> -->
-      <!-- Slider main container -->
-
-  <!-- <div class="swiper gallerySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="swiper__item">
-          <div class="swiper__box-img">
-            <img class="swiper__img" src="@img/gallery.jpg" alt="gallery" />
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="swiper__item">
-          <div class="swiper__box-img">
-            <img class="swiper__img" src="@img/gallery.jpg" alt="gallery" />
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="swiper__item">
-          <div class="swiper__box-img">
-            <img class="swiper__img" src="@img/gallery.jpg" alt="gallery" />
-          </div>
-        </div>
-      </div>
+    <h2 class="gallery__title title">Галерея</h2>
+    <!-- Tab semantics -->
+    <div class="with-sidebar">
+      <ul id="tablist" role="tablist" class="tablist sidebar gallery__list">
+        <li role="presentation">
+          <a class="tab gallery__tab active" role="tab" href="#panel1" id="tab1"
+            ><h3 class="gallery__subtitle subtitle">Спортивный зал</h3>
+            <p class="gallery__text text">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </p>
+            <span class="gallery__span">01</span>
+          </a>
+        </li>
+        <li role="presentation">
+          <a class="tab gallery__tab active" role="tab" href="#panel2" id="tab2"
+            ><h3 class="gallery__subtitle subtitle">Спортивный зал</h3>
+            <p class="gallery__text text">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </p>
+            <span class="gallery__span">01</span>
+          </a>
+        </li>
+        <li role="presentation">
+          <a class="tab gallery__tab active" role="tab" href="#panel3" id="tab3"
+            ><h3 class="gallery__subtitle subtitle">Спортивный зал</h3>
+            <p class="gallery__text text">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </p>
+            <span class="gallery__span">01</span>
+          </a>
+        </li>
+        <li role="presentation">
+          <a class="tab gallery__tab active" role="tab" href="#panel4" id="tab4"
+            ><h3 class="gallery__subtitle subtitle">Спортивный зал</h3>
+            <p class="gallery__text text">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </p>
+            <span class="gallery__span">01</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
-  <div class="gallery__buttons">
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+  <div class="tabpanel-container content">
+    <section
+      class="tabpanel"
+      role="tabpanel"
+      tabindex="0"
+      id="panel1"
+      aria-labelledby="tab1"
+    >
+      <div class="swiper gallerySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img class="swiper__img" src="@img/about.png" alt="gallery" />
+          </div>
+          <div class="swiper-slide">
+            <img class="swiper__img" src="@img/about.png" alt="gallery" />
+          </div>
+          <div class="swiper-slide">
+            <img class="swiper__img" src="@img/about2.png" alt="gallery" />
+          </div>
+          <div class="swiper-slide">
+            <img class="swiper__img" src="@img/galery.png" alt="gallery" />
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <section
+      class="tabpanel"
+      role="tabpanel"
+      tabindex="0"
+      id="panel2"
+      aria-labelledby="tab2"
+    >
+      <div class="swiper gallerySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img class="swiper__img" src="@img/galery.png" alt="gallery" />
+          </div>
+          <div class="swiper-slide">
+            <img class="swiper__img" src="@img/about.png" alt="gallery" />
+          </div>
+          <div class="swiper-slide">
+            <img class="swiper__img" src="@img/about2.png" alt="gallery" />
+          </div>
+          <div class="swiper-slide">
+            <img class="swiper__img" src="@img/galery.png" alt="gallery" />
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <section
+      class="tabpanel"
+      role="tabpanel"
+      tabindex="0"
+      id="panel3"
+      aria-labelledby="tab3"
+    >
+      <div class="swiper gallerySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img class="swiper__img" src="@img/galery.png" alt="gallery" />
+          </div>
+          <div class="swiper-slide">
+            <img class="swiper__img" src="@img/about.png" alt="gallery" />
+          </div>
+          <div class="swiper-slide">
+            <img class="swiper__img" src="@img/about2.png" alt="gallery" />
+          </div>
+          <div class="swiper-slide">
+            <img class="swiper__img" src="@img/galery.png" alt="gallery" />
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <section
+      class="tabpanel"
+      role="tabpanel"
+      tabindex="0"
+      id="panel4"
+      aria-labelledby="tab4"
+    >
+      <div class="swiper gallerySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img class="swiper__img" src="@img/galery.png" alt="gallery" />
+          </div>
+          <div class="swiper-slide">
+            <img class="swiper__img" src="@img/about.png" alt="gallery" />
+          </div>
+          <div class="swiper-slide">
+            <img class="swiper__img" src="@img/about2.png" alt="gallery" />
+          </div>
+          <div class="swiper-slide">
+            <img class="swiper__img" src="@img/galery.png" alt="gallery" />
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
   </div>
- 
-</section> -->
-
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-<!-- Initialize Swiper -->
-<script>
-  var swiper = new Swiper(".gallerySwiper", {
-    loop: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-</script>
+</section>

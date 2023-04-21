@@ -222,56 +222,17 @@ window.addEventListener("scroll", () => {
 });
 
 
-// Инициализация swiper для каждой вкладки
-const tabContents = document.querySelectorAll('.tabpanel');
-tabContents.forEach(content => {
-  const swiper = new Swiper(content.querySelector('.swiper'), {
-    // настройки swiper
-    slidesPerView: 1,
-    spaceBetween: 20,
-    loop: true,
-    // добавление стрелок навигации
-    navigation: {
-      nextEl: content.querySelector('.swiper-button-next'),
-      prevEl: content.querySelector('.swiper-button-prev')
-    },
-    // добавление точек пагинации
-    pagination: {
-      el: content.querySelector('.swiper-pagination'),
-      clickable: true
-    },
-  });
-});
 
-// Обработчик событий клика на вкладку
-const tabs = document.querySelectorAll('.tab');
-tabs.forEach(tab => {
-  tab.addEventListener('click', e => {
-    e.preventDefault();
-    // установка активной вкладки
-    tabs.forEach(tab => tab.classList.remove('active'));
-    tab.classList.add('active');
-    // отображение соответствующей панели
-    const tabContentId = tab.getAttribute('href');
-    tabContents.forEach(content => {
-      content.classList.remove('active');
-      if ('#' + content.getAttribute('id') === tabContentId) {
-        content.classList.add('active');
-      }
-    });
-  });
-});
-
-const tablist = document.querySelector('#tablist');
-const tablistItems = tablist.querySelectorAll('li');
-const tabPanels = document.querySelectorAll('.tabpanel');
-const swiper = document.querySelectorAll('.trainerSwiper');
+const tablist = document.querySelector("#tablist");
+const tablistItems = tablist.querySelectorAll("li");
+const tabPanels = document.querySelectorAll(".tabpanel");
+const swiper = document.querySelectorAll(".gallerySwiper");
 
 // Отключаем дефолтный режим перехода по ссылкам
 for (const tablistItem of tablistItems) {
-  const tabLink = tablistItem.querySelector('a');
+  const tabLink = tablistItem.querySelector("a");
 
-  tabLink.addEventListener('click', (e) => {
+  tabLink.addEventListener("click", (e) => {
     e.preventDefault();
     showPanel(tabLink);
   });
@@ -280,33 +241,37 @@ for (const tablistItem of tablistItems) {
 // Переключаемся на панель
 function showPanel(tab) {
   // Находим панель соответствующую выбранному табу
-  const selectedTab = document.querySelector(tab.getAttribute('href'));
+  const selectedTab = document.querySelector(tab.getAttribute("href"));
   // Скрываем неактивные панели и показываем выбранную панель
   for (const tabPanel of tabPanels) {
     if (tabPanel === selectedTab) {
-      tabPanel.classList.add('active');
+      tabPanel.classList.add("active");
       // Инициализация Swiper для первой вкладки
       initSwiper(selectedTab);
     } else {
-      tabPanel.classList.remove('active');
+      tabPanel.classList.remove("active");
     }
   }
 }
 
 // Инициализация Swiper
 function initSwiper(panel) {
-  const swiperContainer = panel.querySelector('.trainerSwiper');
-  if (!swiperContainer.classList.contains('swiper-container-initialized')) {
+  const swiperContainer = panel.querySelector(".gallerySwiper");
+  if (!swiperContainer.classList.contains("swiper-container-initialized")) {
     new Swiper(swiperContainer, {
-      slidesPerView: '5',
-      spaceBetween: 30,
-      loop: false,
-      
+      loop: true,
+      slidesPerView: 1,
+      pagination: {
+        el: ".swiper-pagination",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
     });
-    swiperContainer.classList.add('swiper-container-initialized');
+    swiperContainer.classList.add("swiper-container-initialized");
   }
 }
 
 // Активация первой вкладки при загрузке страницы
-showPanel(tablistItems[0].querySelector('a'));
-
+showPanel(tablistItems[0].querySelector("a"));
