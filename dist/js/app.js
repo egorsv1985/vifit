@@ -575,7 +575,7 @@
       : e.offsetWidth;
   }
   let C, L, M;
-  function O() {
+  function P() {
     return (
       C ||
         (C = (function () {
@@ -593,11 +593,11 @@
       C
     );
   }
-  function P(e = {}) {
+  function O(e = {}) {
     return (
       L ||
         (L = (function ({ userAgent: e } = {}) {
-          const t = O(),
+          const t = P(),
             s = h(),
             i = s.navigator.platform,
             r = e || s.navigator.userAgent,
@@ -882,9 +882,9 @@
           i.cssMode &&
           (S(r, "--swiper-centered-offset-before", ""),
           S(r, "--swiper-centered-offset-after", ""));
-      const O = i.grid && i.grid.rows > 1 && e.grid;
-      let P;
-      O && e.grid.initSlides(u);
+      const P = i.grid && i.grid.rows > 1 && e.grid;
+      let O;
+      P && e.grid.initSlides(u);
       const A =
         "auto" === i.slidesPerView &&
         i.breakpoints &&
@@ -894,9 +894,9 @@
       for (let r = 0; r < u; r += 1) {
         let n;
         if (
-          ((P = 0),
+          ((O = 0),
           p[r] && (n = p[r]),
-          O && e.grid.updateSlide(r, n, u, t),
+          P && e.grid.updateSlide(r, n, u, t),
           !p[r] || "none" !== y(n, "display"))
         ) {
           if ("auto" === i.slidesPerView) {
@@ -909,7 +909,7 @@
               l && (n.style.webkitTransform = "none"),
               i.roundLengths)
             )
-              P = e.isHorizontal() ? E(n, "width", !0) : E(n, "height", !0);
+              O = e.isHorizontal() ? E(n, "width", !0) : E(n, "height", !0);
             else {
               const e = s(a, "width"),
                 t = s(a, "padding-left"),
@@ -917,23 +917,23 @@
                 r = s(a, "margin-left"),
                 o = s(a, "margin-right"),
                 l = a.getPropertyValue("box-sizing");
-              if (l && "border-box" === l) P = e + r + o;
+              if (l && "border-box" === l) O = e + r + o;
               else {
                 const { clientWidth: s, offsetWidth: a } = n;
-                P = e + t + i + r + o + (a - s);
+                O = e + t + i + r + o + (a - s);
               }
             }
             o && (n.style.transform = o),
               l && (n.style.webkitTransform = l),
-              i.roundLengths && (P = Math.floor(P));
+              i.roundLengths && (O = Math.floor(O));
           } else
-            (P = (a - (i.slidesPerView - 1) * x) / i.slidesPerView),
-              i.roundLengths && (P = Math.floor(P)),
-              p[r] && (p[r].style[t("width")] = `${P}px`);
-          p[r] && (p[r].swiperSlideSize = P),
-            m.push(P),
+            (O = (a - (i.slidesPerView - 1) * x) / i.slidesPerView),
+              i.roundLengths && (O = Math.floor(O)),
+              p[r] && (p[r].style[t("width")] = `${O}px`);
+          p[r] && (p[r].swiperSlideSize = O),
+            m.push(O),
             i.centeredSlides
-              ? ((C = C + P / 2 + L / 2 + x),
+              ? ((C = C + O / 2 + L / 2 + x),
                 0 === L && 0 !== r && (C = C - a / 2 - x),
                 0 === r && (C = C - a / 2 - x),
                 Math.abs(C) < 0.001 && (C = 0),
@@ -945,9 +945,9 @@
                   e.params.slidesPerGroup ==
                   0 && h.push(C),
                 f.push(C),
-                (C = C + P + x)),
-            (e.virtualSize += P + x),
-            (L = P),
+                (C = C + O + x)),
+            (e.virtualSize += O + x),
+            (L = O),
             (M += 1);
         }
       }
@@ -959,7 +959,7 @@
           (r.style.width = `${e.virtualSize + i.spaceBetween}px`),
         i.setWrapperSize &&
           (r.style[t("width")] = `${e.virtualSize + i.spaceBetween}px`),
-        O && e.grid.updateWrapperSize(P, h, t),
+        P && e.grid.updateWrapperSize(O, h, t),
         !i.centeredSlides)
       ) {
         const t = [];
@@ -1071,7 +1071,7 @@
       "number" == typeof e
         ? t.setTransition(e)
         : !0 === e && t.setTransition(t.params.speed);
-      const a = (e) => (i ? t.getSlideIndexByData(e) : t.slides[e]);
+      const a = (e) => (i ? t.slides[t.getSlideIndexByData(e)] : t.slides[e]);
       if ("auto" !== t.params.slidesPerView && t.params.slidesPerView > 1)
         if (t.params.centeredSlides)
           (t.visibleSlides || []).forEach((e) => {
@@ -1796,6 +1796,7 @@
             p.append(o.slides[e]);
           }),
         o.recalcSlides(),
+        "auto" === u.slidesPerView && o.updateSlides(),
         u.watchSlidesProgress && o.updateSlidesOffset(),
         t)
       )
@@ -2721,8 +2722,8 @@
       }
       const r = this;
       (r.__swiper__ = !0),
-        (r.support = O()),
-        (r.device = P({ userAgent: s.userAgent })),
+        (r.support = P()),
+        (r.device = O({ userAgent: s.userAgent })),
         (r.browser = A()),
         (r.eventsListeners = {}),
         (r.eventsAnyListeners = []),
@@ -2918,7 +2919,8 @@
         e.setTranslate(s), e.updateActiveIndex(), e.updateSlidesClasses();
       }
       let r;
-      s.breakpoints && e.setBreakpoint(),
+      if (
+        (s.breakpoints && e.setBreakpoint(),
         [...e.el.querySelectorAll('[loading="lazy"]')].forEach((t) => {
           t.complete && _(e, t);
         }),
@@ -2926,17 +2928,22 @@
         e.updateSlides(),
         e.updateProgress(),
         e.updateSlidesClasses(),
-        e.params.freeMode && e.params.freeMode.enabled
-          ? (i(), e.params.autoHeight && e.updateAutoHeight())
-          : ((r =
-              ("auto" === e.params.slidesPerView ||
-                e.params.slidesPerView > 1) &&
-              e.isEnd &&
-              !e.params.centeredSlides
-                ? e.slideTo(e.slides.length - 1, 0, !1, !0)
-                : e.slideTo(e.activeIndex, 0, !1, !0)),
-            r || i()),
-        s.watchOverflow && t !== e.snapGrid && e.checkOverflow(),
+        e.params.freeMode && e.params.freeMode.enabled)
+      )
+        i(), e.params.autoHeight && e.updateAutoHeight();
+      else {
+        if (
+          ("auto" === e.params.slidesPerView || e.params.slidesPerView > 1) &&
+          e.isEnd &&
+          !e.params.centeredSlides
+        ) {
+          const t =
+            e.virtual && e.params.virtual.enabled ? e.virtual.slides : e.slides;
+          r = e.slideTo(t.length - 1, 0, !1, !0);
+        } else r = e.slideTo(e.activeIndex, 0, !1, !0);
+        r || i();
+      }
+      s.watchOverflow && t !== e.snapGrid && e.checkOverflow(),
         e.emit("update");
     }
     changeDirection(e, t = !0) {
