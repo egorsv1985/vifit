@@ -163,21 +163,50 @@
 //   }
 // }
 .gallery {
-  position: relative;
-  // .gallery__wrapper
-  &__wrapper {}
   // .gallery__title
-  &__title {}
+  &__title {
+  }
   // .gallery__list
-  &__list {}
+  &__list {
+  }
   // .gallery__tab
-  &__tab {}
+  &__tab {
+    &.active{
+      
+width: 451px;
+height: 129px;
+display: block;
+
+background: linear-gradient(84.14deg, #7200FF -0.11%, #FF0202 100%);
+
+      .gallery__subtitle{
+        opacity: 1;
+      }
+      .gallery__text{
+        opacity: 1;
+      }
+    }
+  }
+  // .gallery__counter
+  &__counter {
+    font-family: "BOWLER";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 59px;
+    line-height: 65px;
+
+    opacity: 0.2;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
   // .gallery__subtitle
-  &__subtitle {}
+  &__subtitle {
+   opacity: 0.5;
+  }
   // .gallery__text
-  &__text {}
-  // .gallery__span
-  &__span {}
+  &__text {
+    opacity: 0.5;
+  }
 }
 .container {
 }
@@ -205,9 +234,11 @@
 }
 .swiper {
   // .swiper__item
-  &__item {}
+  &__item {
+  }
   // .swiper__img
-  &__img {}
+  &__img {
+  }
 }
 .gallerySwiper {
 }
@@ -215,9 +246,7 @@
 }
 .swiper-slide {
 }
-.swiper-button-next {
-}
-.swiper-button-prev {
-}
 .swiper-pagination {
+}
+.swiper-button-next {
 }

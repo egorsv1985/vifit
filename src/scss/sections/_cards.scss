@@ -43,7 +43,8 @@
       transform: translate(-50%, -50%);
       z-index: 1;
     }
-    &:hover {
+    &:hover,
+    &.active {
       margin-top: 0;
       background: linear-gradient(84.92deg, #7200ff 0%, #ff0202 104.93%);
 
@@ -60,19 +61,16 @@
           -webkit-text-fill-color: transparent;
           background-clip: text;
           text-fill-color: transparent;
-          
         }
-       
-         a:hover {
+
+        a:hover {
           color: $textAccentColor;
-          background:none;
+          background: none;
           -webkit-background-clip: initial;
           -webkit-text-fill-color: initial;
           background-clip: initial;
           text-fill-color: initial;
-         }
-      
-       
+        }
       }
 
       &::before {

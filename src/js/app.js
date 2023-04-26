@@ -221,6 +221,7 @@ window.addEventListener("scroll", () => {
   lastScroll = currentScroll;
 });
 
+
 // Инициализация swiper для каждой вкладки
 const tabContents = document.querySelectorAll(".tabpanel");
 tabContents.forEach((content) => {
@@ -243,7 +244,7 @@ tabContents.forEach((content) => {
       },
    
     loop: true,
-    centeredSlides: true,
+   
    
   grabCursor: true, // опция для изменения курсора при наведении на слайдер
   });
@@ -319,7 +320,7 @@ function initSwiper(panel) {
           },
           
         },
-        centeredSlides: true,
+      
       loop: true,
      
   grabCursor: true, // опция для изменения курсора при наведении на слайдер
@@ -327,6 +328,42 @@ function initSwiper(panel) {
     swiperContainer.classList.add("swiper-container-initialized");
   }
 }
-
+const gallerySwipers = new Swiper(".gallerySwiper", {
+  // Опции Swiper
+  slidesPerView: "1",
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  paginationType: 'fraction',
+   // включаем пагинацию и настраиваем внешний вид номеров слайдов
+   pagination: {
+    el: ".gallery .swiper-pagination",
+    clickable: true,
+    
+  },
+});
 // Активация первой вкладки при загрузке страницы
 showPanel(tablistItems[0].querySelector("a"));
+
+
+// Получаем все элементы с классом "gallery__tab"
+const galleryTabs = document.querySelectorAll('.gallery__tab');
+
+// Добавляем обработчик события "click" на каждый элемент "gallery__tab"
+galleryTabs.forEach(tab => {
+  tab.addEventListener('click', (event) => {
+    event.preventDefault(); // Предотвращаем действие по умолчанию (например, переход по ссылке)
+    // Удаляем класс "active" у всех элементов "gallery__tab"
+    galleryTabs.forEach(tab => {
+      tab.classList.remove('active');
+    });
+    // Добавляем класс "active" только на текущий элемент "gallery__tab", на который был клик
+    tab.classList.add('active');
+  });
+});
