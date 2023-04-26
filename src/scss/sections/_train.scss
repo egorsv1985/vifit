@@ -1,32 +1,28 @@
 .train {
-  position: relative;
-  padding: 100px 0 50px;
-  // .train__wrapper
-  &__wrapper {
-    @include flex(space-between, $flex-direction: column);
-    gap: 100px;
-    max-width: 1700px;
-    margin: 0 auto;
-    
-  }
+  
+  padding: 60px 0;
+  background-color: $secondColor;
+
   // .train__title
   &__title {
-    &::after {
-      left: -10%;
-    }
+    color: $textAccentColor;
+    margin-bottom: 60px;
+   
   }
   // .train__content
   &__content {
     @include flex(space-between);
     overflow-x: auto;
+    max-width: 1440px;
+    margin: 0 auto;
     
   }
   // .train__box
   &__box {
     @include flex(center, center);
     position: relative;
-    min-width: 425px;
-    min-height: 649px;
+    min-width: 360px;
+    min-height: 549px;
     max-width: 100%;
     
     
@@ -49,10 +45,6 @@
     position: relative;
     z-index: 1;
 
-    font-family: "micra-bold";
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 26px;
     text-align: center;
   }
 }

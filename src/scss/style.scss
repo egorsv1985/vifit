@@ -169,6 +169,10 @@ picture {
 @import "./sections/prime";
 @import "./sections/about";
 @import "./sections/gallery";
+@import "./sections/train";
+@import "./sections/cards";
+@import "./sections/kids";
+@import "./sections/contacts";
 // @import "./sections/trainer";
 // @import "./sections/contacts";
 // @import "./sections/cards";
@@ -180,7 +184,7 @@ picture {
 
 // block
 @import "header";
-// @import "footer";
+@import "footer";
 @import "./blocks/nav";
 @import "./blocks/logo";
 @import "./blocks/open-burger";

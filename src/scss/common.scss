@@ -1,35 +1,29 @@
 // Заголовки, общие БЄМ блоки и проче...
 
 .title {
-  
-  
-
-font-family: 'BOWLER';
-font-style: normal;
-font-weight: 400;
-font-size: 59px;
-line-height: 65px;
-color: $textMainColor;
-text-transform: uppercase;
-&--dark{
-  color: #010101;
-
-}
-
-
+  font-family: "BOWLER";
+  font-style: normal;
+  font-weight: 400;
+  --title-font-size: clamp(30px, 4.32vw + -3.14px, 59px);
+  font-size: var(--title-font-size);
+  // font-size: 59px;
+  --litle-line-height: clamp(35px, 4.46vw + 0.71px, 65px);
+  line-height: var(--litle-line-height);
+  // line-height: 65px;
+  color: $textMainColor;
+  text-transform: uppercase;
+  &--dark {
+    color: #010101;
+  }
 }
 
 .subtitle {
- 
+  font-family: "BOWLER";
 
-font-family: 'BOWLER';
+  font-size: 22px;
+  line-height: 24px;
 
-font-size: 22px;
-line-height: 24px;
-
-color: $textMainColor;
-
-
+  color: $textMainColor;
 }
 
 .text {
@@ -40,8 +34,6 @@ color: $textMainColor;
   line-height: 18px;
 
   color: $textMainColor;
- 
-
 
   &--right {
     text-align: right;
@@ -66,7 +58,8 @@ color: $textMainColor;
   color: $textMainColor;
   &:hover {
     background: $secondColor;
-    a, span {
+    a,
+    span {
       background: linear-gradient(84.14deg, #7200ff -0.11%, #ff0202 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;

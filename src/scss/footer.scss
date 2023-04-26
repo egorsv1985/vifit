@@ -21,14 +21,12 @@
   &__text {
     font-family: "Mulish-Regular";
     font-weight: 400;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 113%;
     letter-spacing: 0.04em;
     @include media(max, lg) {
       text-align: center;
     }
   }
-  // .footer__logo
-  &__logo {
-  }
+  
 }
