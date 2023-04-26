@@ -226,6 +226,7 @@ const tabContents = document.querySelectorAll(".tabpanel");
 tabContents.forEach((content) => {
   const swiper = new Swiper(content.querySelector(".swiper"), {
     // настройки swiper
+ 
     slidesPerView: "1",
     spaceBetween: 20,
       breakpoints: {
@@ -243,8 +244,7 @@ tabContents.forEach((content) => {
    
     loop: true,
     centeredSlides: true,
-    effect: 'slide', // выбираем эффект переключения слайдов
-  speed: 500, // указываем скорость анимации в миллисекундах
+   
   grabCursor: true, // опция для изменения курсора при наведении на слайдер
   });
 });
@@ -304,6 +304,7 @@ function initSwiper(panel) {
   const swiperContainer = panel.querySelector(".trainerSwiper");
   if (!swiperContainer.classList.contains("swiper-container-initialized")) {
     new Swiper(swiperContainer, {
+     
       slidesPerView: "1",
       spaceBetween: 20,
         breakpoints: {
@@ -320,8 +321,7 @@ function initSwiper(panel) {
         },
         centeredSlides: true,
       loop: true,
-      effect: 'slide', // выбираем эффект переключения слайдов
-  speed: 500, // указываем скорость анимации в миллисекундах
+     
   grabCursor: true, // опция для изменения курсора при наведении на слайдер
     });
     swiperContainer.classList.add("swiper-container-initialized");

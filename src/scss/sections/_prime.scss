@@ -1,7 +1,10 @@
 .prime {
   padding: 120px 0 310px;
   background-color: $thirdColor;
-
+  background-image: url("@img/prime1.png");
+  background-size: auto 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
   // .prime__box-img
   &__box-img {
     position: absolute;
@@ -16,6 +19,7 @@
   &__content {
     padding-top: 170px;
     position: relative;
+   
     z-index: 2;
     &::before {
       @include pseudo;
@@ -27,7 +31,7 @@
       
     }
     &::after {
-      @include pseudo;
+      // @include pseudo;
       @include background(url("@img/prime1.png"));
       @include wh(1438px, 905px);
       position: absolute;

@@ -1,9 +1,17 @@
 .scroll-down .header {
 	// transform: translate3d(0, -100%, 0);
+	&__bottom{
+		background-color: $secondColor;
+		box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+	  }
 }
 
 .scroll-up .header {
 	transform: none;
+	&__bottom{
+		background-color: $secondColor;
+		box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+	  }
 	
 
   // .header__wrapper
@@ -12,7 +20,8 @@
 	
   }
   &__bottom{
-	background: linear-gradient(to bottom, rgb(255 255 255) 0%,rgba(0,0,0,0) 100%);
+	background-color: $secondColor;
+	box-shadow: 0 0 10px rgb(0 0 0 / 30%);
   }
 	
 }
