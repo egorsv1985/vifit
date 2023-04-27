@@ -549,7 +549,7 @@
   function y(e, t) {
     return h().getComputedStyle(e, null).getPropertyValue(t);
   }
-  function x(e) {
+  function E(e) {
     let t,
       s = e;
     if (s) {
@@ -558,7 +558,7 @@
       return t;
     }
   }
-  function E(e, t, s) {
+  function x(e, t, s) {
     const i = h();
     return s
       ? e["width" === t ? "offsetWidth" : "offsetHeight"] +
@@ -864,15 +864,15 @@
       "function" == typeof v && (v = i.slidesOffsetAfter.call(e));
       const w = e.snapGrid.length,
         b = e.slidesGrid.length;
-      let x = i.spaceBetween,
+      let E = i.spaceBetween,
         C = -g,
         L = 0,
         M = 0;
       if (void 0 === a) return;
-      "string" == typeof x &&
-        x.indexOf("%") >= 0 &&
-        (x = (parseFloat(x.replace("%", "")) / 100) * a),
-        (e.virtualSize = -x),
+      "string" == typeof E &&
+        E.indexOf("%") >= 0 &&
+        (E = (parseFloat(E.replace("%", "")) / 100) * a),
+        (e.virtualSize = -E),
         p.forEach((e) => {
           o ? (e.style.marginLeft = "") : (e.style.marginRight = ""),
             (e.style.marginBottom = ""),
@@ -909,7 +909,7 @@
               l && (n.style.webkitTransform = "none"),
               i.roundLengths)
             )
-              O = e.isHorizontal() ? E(n, "width", !0) : E(n, "height", !0);
+              O = e.isHorizontal() ? x(n, "width", !0) : x(n, "height", !0);
             else {
               const e = s(a, "width"),
                 t = s(a, "padding-left"),
@@ -927,15 +927,15 @@
               l && (n.style.webkitTransform = l),
               i.roundLengths && (O = Math.floor(O));
           } else
-            (O = (a - (i.slidesPerView - 1) * x) / i.slidesPerView),
+            (O = (a - (i.slidesPerView - 1) * E) / i.slidesPerView),
               i.roundLengths && (O = Math.floor(O)),
               p[r] && (p[r].style[t("width")] = `${O}px`);
           p[r] && (p[r].swiperSlideSize = O),
             m.push(O),
             i.centeredSlides
-              ? ((C = C + O / 2 + L / 2 + x),
-                0 === L && 0 !== r && (C = C - a / 2 - x),
-                0 === r && (C = C - a / 2 - x),
+              ? ((C = C + O / 2 + L / 2 + E),
+                0 === L && 0 !== r && (C = C - a / 2 - E),
+                0 === r && (C = C - a / 2 - E),
                 Math.abs(C) < 0.001 && (C = 0),
                 i.roundLengths && (C = Math.floor(C)),
                 M % i.slidesPerGroup == 0 && h.push(C),
@@ -945,8 +945,8 @@
                   e.params.slidesPerGroup ==
                   0 && h.push(C),
                 f.push(C),
-                (C = C + O + x)),
-            (e.virtualSize += O + x),
+                (C = C + O + E)),
+            (e.virtualSize += O + E),
             (L = O),
             (M += 1);
         }
@@ -973,7 +973,7 @@
             h.push(e.virtualSize - a);
       }
       if (d && i.loop) {
-        const t = m[0] + x;
+        const t = m[0] + E;
         if (i.slidesPerGroup > 1) {
           const s = Math.ceil(
               (e.virtual.slidesBefore + e.virtual.slidesAfter) /
@@ -996,7 +996,7 @@
         p.filter(
           (e, t) => !(i.cssMode && !i.loop) || t !== p.length - 1
         ).forEach((e) => {
-          e.style[s] = `${x}px`;
+          e.style[s] = `${E}px`;
         });
       }
       if (i.centeredSlides && i.centeredSlidesBounds) {
@@ -2133,9 +2133,9 @@
       (i.isMoved = !0),
       (i.currentTranslate = v + i.startTranslate);
     let y = !0,
-      x = r.resistanceRatio;
+      E = r.resistanceRatio;
     if (
-      (r.touchReleaseOnEdges && (x = 0),
+      (r.touchReleaseOnEdges && (E = 0),
       v > 0
         ? (b &&
             !T &&
@@ -2154,7 +2154,7 @@
               (i.currentTranslate =
                 s.minTranslate() -
                 1 +
-                (-s.minTranslate() + i.startTranslate + v) ** x)))
+                (-s.minTranslate() + i.startTranslate + v) ** E)))
         : v < 0 &&
           (b &&
             !T &&
@@ -2177,7 +2177,7 @@
               (i.currentTranslate =
                 s.maxTranslate() +
                 1 -
-                (s.maxTranslate() - i.startTranslate - v) ** x))),
+                (s.maxTranslate() - i.startTranslate - v) ** E))),
       y && (l.preventedByNestedSwiper = !0),
       !s.allowSlideNext &&
         "next" === s.swipeDirection &&
@@ -2812,8 +2812,8 @@
     }
     getSlideIndex(e) {
       const { slidesEl: t, params: s } = this,
-        i = x(T(t, `.${s.slideClass}, swiper-slide`)[0]);
-      return x(e) - i;
+        i = E(T(t, `.${s.slideClass}, swiper-slide`)[0]);
+      return E(e) - i;
     }
     getSlideIndexByData(e) {
       return this.getSlideIndex(
@@ -3466,9 +3466,6 @@
         1200: { slidesPerView: 3, spaceBetween: 60 },
       },
       loop: !0,
-      centeredSlides: !0,
-      effect: "slide",
-      speed: 500,
       grabCursor: !0,
     });
   });
@@ -3511,13 +3508,31 @@
           768: { slidesPerView: 2, spaceBetween: 30 },
           1200: { slidesPerView: 3, spaceBetween: 60 },
         },
-        centeredSlides: !0,
         loop: !0,
-        effect: "slide",
-        speed: 500,
         grabCursor: !0,
       }),
       t.classList.add("swiper-container-initialized"));
   }
+  new Swiper(".gallerySwiper", {
+    slidesPerView: "1",
+    loop: !0,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: { el: ".swiper-pagination", clickable: !0 },
+    paginationType: "fraction",
+    pagination: { el: ".gallery .swiper-pagination", clickable: !0 },
+  });
   we(ge[0].querySelector("a"));
+  const be = document.querySelectorAll(".gallery__tab");
+  be.forEach((e) => {
+    e.addEventListener("click", (t) => {
+      t.preventDefault(),
+        be.forEach((e) => {
+          e.classList.remove("active");
+        }),
+        e.classList.add("active");
+    });
+  });
 })();
