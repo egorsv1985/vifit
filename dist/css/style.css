@@ -1426,6 +1426,153 @@ body {
   align-self: center;
 }
 
+.form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 30px;
+}
+.form__body {
+  height: 100%;
+  width: 100%;
+  border: none;
+  display: flex;
+  gap: 16px;
+  position: relative;
+}
+@media only screen and (max-width: 992px) {
+  .form__body {
+    flex-direction: column;
+  }
+}
+.form__box {
+  position: relative;
+}
+.form__input {
+  width: 276px;
+  height: 78px;
+  background-color: #fff;
+  border-radius: 33px;
+  font-family: "ProximaNova-Light";
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 20px;
+  color: #000;
+  padding: 0 20px;
+  position: relative;
+}
+@media only screen and (max-width: 992px) {
+  .form__input {
+    height: 60px;
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .form__input {
+    width: 100%;
+  }
+}
+.form__input::placeholder {
+  font-size: 20px;
+  line-height: 20px;
+  color: #000;
+}
+.form__input:focus-visible, .form__input:focus, .form__input:active {
+  border: 1px solid #000;
+}
+.form__input:focus, .form__input:focus-visible {
+  outline-color: #000;
+}
+.form__input:focus ~ .form__label, .form__input:valid ~ .form__label {
+  top: -20px;
+  color: #fff;
+}
+.form__label {
+  font-family: "ProximaNova-Light";
+  font-size: 20px;
+  line-height: 20px;
+  color: #000;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+}
+.form__btn {
+  width: 276px;
+  height: 78px;
+  transition: all 0.2s ease-in-out;
+  background: linear-gradient(264deg, #ff0202 0%, #7200ff 100%);
+  border-radius: 33px 0px;
+  font-family: "ProximaNova-Extrabld";
+  font-size: 45px;
+  line-height: 45px;
+  transition: all 0.3s ease 0s;
+}
+.form__btn:hover {
+  background: #3a3a3a;
+}
+@media only screen and (max-width: 992px) {
+  .form__btn {
+    height: 60px;
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .form__btn {
+    width: 100%;
+  }
+}
+.form__checkbox {
+  margin-bottom: 1.1875rem;
+  max-width: 525px;
+  padding-left: 30px;
+}
+
+.checkbox__input {
+  display: none;
+}
+.checkbox__label {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  justify-content: flex-end;
+}
+.checkbox__label::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  width: 22px;
+  height: 22px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../img/icons/check.svg");
+  opacity: 0;
+  transition: all 0.3s ease 0s;
+}
+.checkbox__label::after {
+  content: "";
+  align-self: flex-start;
+  flex: 0 0 25px;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #000;
+  background-color: #fff;
+  margin-right: 0.875rem;
+}
+.checkbox__text {
+  font-family: "ProximaNova-Light";
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 300;
+}
+
+.checkbox__input:checked + .checkbox__label::before {
+  opacity: 1;
+}
+
 .popup__content {
   background-color: linear-gradient(264deg, #ff0202 0%, #7200ff 100%);
   border-radius: 40px;

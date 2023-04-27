@@ -1,1 +1,169 @@
 
+.form {
+	@include flex(space-between, $flex-direction: column);
+	gap: 30px;
+  
+	// .form__body
+	&__body {
+	  height: 100%;
+	  width: 100%;
+	  border: none;
+	  display: flex;
+  
+	  gap: 16px;
+	  position: relative;
+	  @include media(max, lg) {
+		flex-direction: column;
+	  }
+	}
+	// .form__box
+	&__box {
+	  position: relative;
+	}
+	// .form__input
+	&__input {
+	  width: 276px;
+	  height: 78px;
+	  @include media(max, lg) {
+		height: 60px;
+		width: 80%;
+	  }
+	  @include media(max, sm) {
+		width: 100%;
+	  }
+  
+	  background-color: #fff;
+	  border-radius: 33px;
+  
+	  font-family: "ProximaNova-Light";
+  
+	  font-weight: 300;
+	  font-size: 20px;
+	  line-height: 20px;
+  
+	  color: $textAccentColor;
+  
+	  padding: 0 20px;
+	  position: relative;
+  
+	  &::placeholder {
+		font-size: 20px;
+		line-height: 20px;
+  
+		color: $textAccentColor;
+	  }
+  
+	  &:focus-visible,
+	  &:focus,
+	  &:active {
+		border: 1px solid #000;
+	  }
+  
+	  &:focus,
+	  &:focus-visible {
+		outline-color: #000;
+	  }
+  
+	  &:focus ~ .form__label,
+	  &:valid ~ .form__label {
+		top: -20px;
+		color: $textMainColor;
+	  }
+	}
+	// .form__label
+	&__label {
+	  font-family: "ProximaNova-Light";
+	  font-size: 20px;
+	  line-height: 20px;
+  
+	  color: $textAccentColor;
+	  position: absolute;
+	  top: 50%;
+	  transform: translateY(-50%);
+	  left: 20px;
+	}
+	// .form__btn
+	&__btn {
+	  width: 276px;
+	  height: 78px;
+	  transition: all 0.2s ease-in-out;
+	  &:hover {
+		background: #3a3a3a;
+	  }
+	  @include media(max, lg) {
+		height: 60px;
+		width: 80%;
+	  }
+	  @include media(max, sm) {
+		width: 100%;
+	  }
+	  background: $accentColor;
+	  border-radius: 33px 0px;
+  
+	  font-family: "ProximaNova-Extrabld";
+  
+	  font-size: 45px;
+	  line-height: 45px;
+  
+	  transition: all 0.3s ease 0s;
+  
+	  @media (any-hover: hover) {
+		&:hover {
+		}
+	  }
+	}
+	// .form__checkbox
+	&__checkbox {
+	  margin-bottom: rem(19);
+	  max-width: 525px;
+	  padding-left: 30px;
+	}
+  }
+  
+  .checkbox {
+	// .checkbox__input
+	&__input {
+	  display: none;
+	}
+	// .checkbox__label
+	&__label {
+	  display: flex;
+	  flex-direction: row-reverse;
+	  position: relative;
+	  justify-content: flex-end;
+  
+	  &::before {
+		@include pseudo;
+		position: absolute;
+		left: 0px;
+		top: 2px;
+		@include wh(22px);
+		@include background(url("@img/icons/check.svg"));
+  
+		opacity: 0;
+		transition: all 0.3s ease 0s;
+	  }
+  
+	  &::after {
+		content: "";
+		align-self: flex-start;
+		flex: 0 0 25px;
+		@include wh(25px);
+  
+		border: 1px solid #000;
+		background-color: #fff;
+		margin-right: rem(14);
+	  }
+	}
+	// .checkbox__text
+	&__text {
+	  font-family: "ProximaNova-Light";
+  
+	  font-size: 20px;
+	  line-height: 20px;
+	  font-weight: 300;
+	}
+  }
+  .checkbox__input:checked + .checkbox__label::before {
+	opacity: 1;
+  }

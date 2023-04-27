@@ -1,108 +1,133 @@
 <header class="header">
-  <div class="container header__wrapper">
-    <div class="header__block">
-      <span class="header__span header__span--thin">МЕНЮ</span>
-      <button type="button" class="header__burger burger button">
-        <div class="burger__inner">
-          <span></span>
+  <div class="header__wrapper">
+    <div class="header__top">
+      <div class="container">
+        <div class="header__top-wrapper">
+          <a href="index.html" class="header__logo logo">
+            <img src="@img/icons/logo.svg" alt="logo" class="logo__img" />
+          </a>
+          <div class="header__box header__box--time">
+            <span class="header__span">Пн.-Пт. 07:00 - 00:00</span>
+            <span class="header__span"> Сб.-Вс. 08:00 - 23:00</span>
+          </div>
+          <div class="header__box header__box--map">
+            <span class="header__span">Университетская улица, </span>
+            <span class="header__span">15, Сургут</span>
+          </div>
+          <div class="header__btn btn">
+            <a data-popup="#callback" href="#callback" role="button"
+              >бесплатный гостевой</a
+            >
+          </div>
+
+          <div class="header__box">
+            <a href="tel:83462589887" class="header__link">8 |346| 258 98 87</a>
+            <ul class="header__social-list">
+              <li class="header__social-item">
+                <a href="#" class="header__social-link">
+                  <svg
+                    width="29"
+                    height="17"
+                    viewBox="0 0 29 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M13.7776 15.9706H15.4608C15.4608 15.9706 15.9693 15.9177 16.2288 15.6528C16.4678 15.4095 16.4601 14.9526 16.4601 14.9526C16.4601 14.9526 16.4272 12.8138 17.4755 12.4989C18.5088 12.1886 19.8358 14.566 21.2422 15.4801C22.3057 16.1719 23.1139 16.0202 23.1139 16.0202L26.8745 15.9706C26.8745 15.9706 28.8418 15.8558 27.909 14.3911C27.8325 14.2713 27.3657 13.3076 25.1129 11.3274C22.7549 9.25488 23.0707 9.59011 25.9111 6.00508C27.641 3.82177 28.3326 2.48884 28.1166 1.91794C27.9105 1.3742 26.6383 1.51792 26.6383 1.51792L22.404 1.54289C22.404 1.54289 22.0901 1.50235 21.8573 1.63412C21.6298 1.76336 21.4834 2.06456 21.4834 2.06456C21.4834 2.06456 20.8133 3.75408 19.9195 5.19091C18.034 8.22278 17.2801 8.38279 16.972 8.19454C16.2552 7.75578 16.4341 6.43189 16.4341 5.49138C16.4341 2.55328 16.9047 1.32822 15.5178 1.0111C15.0575 0.905751 14.7188 0.836244 13.5417 0.825021C12.0309 0.810179 10.7521 0.829365 10.0281 1.16531C9.54638 1.38868 9.17479 1.88645 9.40111 1.91504C9.68094 1.95052 10.3148 2.07687 10.6508 2.5102C11.0847 3.06915 11.0694 4.32461 11.0694 4.32461C11.0694 4.32461 11.3187 7.78329 10.4872 8.213C9.91644 8.50768 9.1335 7.90602 7.45257 5.15543C6.59126 3.74647 5.94099 2.18909 5.94099 2.18909C5.94099 2.18909 5.8156 1.89803 5.59196 1.74236C5.32053 1.55375 4.9413 1.49366 4.9413 1.49366L0.917678 1.51864C0.917678 1.51864 0.313658 1.53457 0.0919288 1.78327C-0.105334 2.00446 0.0762547 2.46205 0.0762547 2.46205C0.0762547 2.46205 3.22634 9.44095 6.79312 12.9579C10.0636 16.1824 13.7776 15.9706 13.7776 15.9706Z"
+                      fill="white"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M13.7776 15.9706H15.4608C15.4608 15.9706 15.9693 15.9177 16.2288 15.6528C16.4678 15.4095 16.4601 14.9526 16.4601 14.9526C16.4601 14.9526 16.4272 12.8138 17.4755 12.4989C18.5088 12.1886 19.8358 14.566 21.2422 15.4801C22.3057 16.1719 23.1139 16.0202 23.1139 16.0202L26.8745 15.9706C26.8745 15.9706 28.8418 15.8558 27.909 14.3911C27.8325 14.2713 27.3657 13.3076 25.1129 11.3274C22.7549 9.25488 23.0707 9.59011 25.9111 6.00508C27.641 3.82177 28.3326 2.48884 28.1166 1.91794C27.9105 1.3742 26.6383 1.51792 26.6383 1.51792L22.404 1.54289C22.404 1.54289 22.0901 1.50235 21.8573 1.63412C21.6298 1.76336 21.4834 2.06456 21.4834 2.06456C21.4834 2.06456 20.8133 3.75408 19.9195 5.19091C18.034 8.22278 17.2801 8.38279 16.972 8.19454C16.2552 7.75578 16.4341 6.43189 16.4341 5.49138C16.4341 2.55328 16.9047 1.32822 15.5178 1.0111C15.0575 0.905751 14.7188 0.836244 13.5417 0.825021C12.0309 0.810179 10.7521 0.829365 10.0281 1.16531C9.54638 1.38868 9.17479 1.88645 9.40111 1.91504C9.68094 1.95052 10.3148 2.07687 10.6508 2.5102C11.0847 3.06915 11.0694 4.32461 11.0694 4.32461C11.0694 4.32461 11.3187 7.78329 10.4872 8.213C9.91644 8.50768 9.1335 7.90602 7.45257 5.15543C6.59126 3.74647 5.94099 2.18909 5.94099 2.18909C5.94099 2.18909 5.8156 1.89803 5.59196 1.74236C5.32053 1.55375 4.9413 1.49366 4.9413 1.49366L0.917678 1.51864C0.917678 1.51864 0.313658 1.53457 0.0919288 1.78327C-0.105334 2.00446 0.0762547 2.46205 0.0762547 2.46205C0.0762547 2.46205 3.22634 9.44095 6.79312 12.9579C10.0636 16.1824 13.7776 15.9706 13.7776 15.9706Z"
+                      fill="url(#paint0_linear_108_95)"
+                    />
+                    <defs>
+                      <linearGradient
+                        id="paint0_linear_108_95"
+                        x1="28.16"
+                        y1="0.821564"
+                        x2="-1.82526"
+                        y2="6.65994"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop stop-color="#FF0202" />
+                        <stop offset="1" stop-color="#7200FF" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </a>
+              </li>
+              <li class="header__social-item">
+                <a href="#" class="header__social-link">
+                  <svg
+                    width="24"
+                    height="20"
+                    viewBox="0 0 24 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M23.4589 2.9976C24 5.136 24 9.6 24 9.6C24 9.6 24 14.064 23.4589 16.2024C23.1582 17.3844 22.2785 18.3144 21.1643 18.6288C19.1409 19.2 12.16 19.2 12.16 19.2C12.16 19.2 5.1827 19.2 3.15569 18.6288C2.03681 18.3096 1.15828 17.3808 0.861095 16.2024C0.320007 14.064 0.320007 9.6 0.320007 9.6C0.320007 9.6 0.320007 5.136 0.861095 2.9976C1.16183 1.8156 2.04154 0.8856 3.15569 0.5712C5.1827 -2.14577e-07 12.16 0 12.16 0C12.16 0 19.1409 -2.14577e-07 21.1643 0.5712C22.2832 0.8904 23.1617 1.8192 23.4589 2.9976V2.9976ZM9.79201 13.8L16.896 9.6L9.79201 5.4V13.8Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M23.4589 2.9976C24 5.136 24 9.6 24 9.6C24 9.6 24 14.064 23.4589 16.2024C23.1582 17.3844 22.2785 18.3144 21.1643 18.6288C19.1409 19.2 12.16 19.2 12.16 19.2C12.16 19.2 5.1827 19.2 3.15569 18.6288C2.03681 18.3096 1.15828 17.3808 0.861095 16.2024C0.320007 14.064 0.320007 9.6 0.320007 9.6C0.320007 9.6 0.320007 5.136 0.861095 2.9976C1.16183 1.8156 2.04154 0.8856 3.15569 0.5712C5.1827 -2.14577e-07 12.16 0 12.16 0C12.16 0 19.1409 -2.14577e-07 21.1643 0.5712C22.2832 0.8904 23.1617 1.8192 23.4589 2.9976V2.9976ZM9.79201 13.8L16.896 9.6L9.79201 5.4V13.8Z"
+                      fill="url(#paint0_linear_108_94)"
+                    />
+                    <defs>
+                      <linearGradient
+                        id="paint0_linear_108_94"
+                        x1="24"
+                        y1="0"
+                        x2="-1.73764"
+                        y2="3.33894"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop stop-color="#FF0202" />
+                        <stop offset="1" stop-color="#7200FF" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="header__burger burger button">
+            <span class="burger__inner">
+              <span></span>
+            </span>
+          </button>
         </div>
-      </button>
-      <nav class="header__nav nav">
+      </div>
+    </div>
+    <div class="header__bottom">
+      <nav class="container header__nav nav">
         <ul class="nav__list">
           <li class="nav__item">
             <a href="index.html#about" class="nav__link">О КЛУБЕ</a>
           </li>
           <li class="nav__item">
-            <a href="index.html#gallery" class="nav__link">Галерея</a>
+            <a href="index.html#trainer" class="nav__link">Тренеры</a>
           </li>
           <li class="nav__item">
-            <a href="index.html#train" class="nav__link"
-              >тренируйся без покупки клубной карты</a
-            >
+            <a href="index.html#cards" class="nav__link">Клубная карта</a>
           </li>
           <li class="nav__item">
-            <a href="index.html#cards" class="nav__link">Клубные карты</a>
+            <a href="index.html#kids" class="nav__link">Для детей</a>
           </li>
           <li class="nav__item">
-            <a href="#trainer" class="nav__link">Выбери своего тренера</a>
+            <div class="header__btn btn">
+              <a href="#">РАСПИСАНИЕ</a>
+            </div>
           </li>
           <li class="nav__item">
-            <a href="index.html#kids" class="nav__link">KIDS CLUB</a>
-          </li>
-          <li class="nav__item">
-            <a href="index.html#spa" class="nav__link">SPA</a>
-          </li>
-          <li class="nav__item">
-            <a href="index.html#contacts" class="nav__link">контакты</a>
+            <a href="#contacts" class="nav__link">Контакты</a>
           </li>
         </ul>
       </nav>
     </div>
-    <a href="index.html" class="header__logo logo">
-      <img src="@img/icons/logo.svg" alt="logo" class="logo__img" />
-    </a>
-    <div class="header__inner">
-      <div class="header__box header__box--time">
-        <span class="header__span">Пн-пт: 7:00-24:00</span>
-        <span class="header__span">Сб-Вс: 9:00-22:00</span>
-      </div>
-      <div class="header__box">
-        <span class="header__span header__span--tel"
-          ><a href="tel:+79295541859" class="nav__link"
-            >+7 (929) 554-18-59</a
-          ></span
-        >
-        <span class="header__span header__span--viber"
-          ><a href="viber://chat?number=%2B74952923194"
-            >+7 (495) 292-31-94</a
-          ></span
-        >
-        <span class="header__span header__span--map">
-          <a class="contacts__link" href="https://goo.gl/maps/oMyfjk3UfmUR63Vw8"
-            >м. Бауманская</a
-          >
-        </span>
-      </div>
-      <div class="header__box header__box-buttons">
-        <a
-          href="schedule.html"
-          role="button"
-          class="header__link"
-          target="_blank"
-          >расписание групповых программ</a
-        >
-        <a
-          data-popup="#callback"
-          href="#callback"
-          role="button"
-          class="header__link"
-          >Записаться на гостевой визит</a
-        >
-      </div>
-    </div>
-    <ul class="header__social-list">
-      <li class="header__social-item">
-        <a href="#" class="header__social-link">
-          <img
-            src="@img/icons/vk-header.svg"
-            alt="vk"
-            width="70px"
-            height="35px"
-            class="header__img"
-          />
-        </a>
-      </li>
-      <li class="header__social-item">
-        <a href="#" class="header__social-link">
-          <img
-            src="@img/icons/youtube-header.svg"
-            alt="youtube"
-            width="58px"
-            height="44px"
-            class="header__img"
-          />
-        </a>
-      </li>
-    </ul>
   </div>
 </header>
