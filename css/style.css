@@ -997,6 +997,7 @@ body {
   height: 15px;
   border-radius: 50%;
   background: #2c2c2c;
+  cursor: pointer;
 }
 .gallery .swiper-pagination-bullet-active {
   background: linear-gradient(84.14deg, #7200ff -0.11%, #ff0202 100%), #2c2c2c;
@@ -1008,6 +1009,7 @@ body {
   right: -45px;
   top: 40%;
   border-radius: 50%;
+  cursor: pointer;
   background: linear-gradient(84.14deg, #7200ff -0.11%, #ff0202 100%);
   border: 5px solid #000;
 }
