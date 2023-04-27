@@ -24,6 +24,10 @@
   line-height: 24px;
 
   color: $textMainColor;
+  @include media (max, sm) {
+    font-size: 16px;
+    line-height: 18px;
+  }
 }
 
 .text {

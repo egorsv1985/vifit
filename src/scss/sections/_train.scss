@@ -12,38 +12,41 @@
   // .train__content
   &__content {
     @include flex(space-between);
-    overflow-x: auto;
+    
     max-width: 1440px;
     margin: 0 auto;
-    
+    @include media (max, lg) {
+      flex-wrap: wrap;
+    }
   }
   // .train__box
   &__box {
     @include flex(center, center);
     position: relative;
-    min-width: 360px;
-    min-height: 549px;
-    max-width: 100%;
+   @include media (max, lg) {
+    width: 50%;
+   }
     
     
     picture{
-      position: absolute;
-      top: 0%;
+     
       width: 100%;
       height: 100%;
     }
   }
   // .train__img
   &__img {
-    position: absolute;
-    top: 0%;
+   
     width: 100%;
     height: 100%;
   }
   // .train__subtitle
   &__subtitle {
-    position: relative;
+    position: absolute;
     z-index: 1;
+left: 50%;
+top: 46%;
+transform: translateX(-50%);
 
     text-align: center;
   }
