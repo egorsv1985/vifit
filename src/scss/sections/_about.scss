@@ -1,6 +1,7 @@
 .about {
   position: relative;
   padding: 138px 0 200px;
+  overflow: hidden;
   &::after{
     @include pseudo;
     @include background (url("@img/about.png"));

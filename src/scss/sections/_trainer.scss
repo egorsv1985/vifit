@@ -51,7 +51,7 @@
     &__item {
       @include flex(center, center, $flex-direction: column);
       padding: 33px 30px 20px;
-max-width: 350px;
+      max-width: 350px;
       background-color: $secondColor;
       border: 2px solid $mainColor;
       border-radius: 30px;
@@ -62,13 +62,13 @@ max-width: 350px;
       max-width: 348px;
       align-self: center;
       margin-bottom: 32px;
-      img, picture{
+      img,
+      picture {
         width: 100%;
       }
     }
     // .swiper__img
     &__img {
-     
     }
     // .swiper__box-content
     &__box-content {

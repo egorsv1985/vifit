@@ -163,26 +163,89 @@
 //   }
 // }
 .gallery {
+  padding: 20px 0 80px;
   // .gallery__title
   &__title {
+    margin-bottom: 55px;
+  }
+  // .gallery__content
+  &__content {
+    @include flex(space-between);
+    @include media (max, xl) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .with-sidebar {
+    max-width: 44%;
+    @include media (max, xl) {
+      max-width: 100%;
+    }
   }
   // .gallery__list
   &__list {
+    @include flex($flex-direction: column);
+    gap: 60px;
+    margin-top: 40px;
+    @include media (max, xl) {
+      flex-direction: row;
+      justify-content: space-between;
+
+      margin-top: 0;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  }
+  // .gallery__item
+  &__item {
+    @include flex($align-items: center);
+   @include media (max, xl) {
+    max-width: 40%;
+   }
+   @include media (max, sm) {
+    max-width: 100%;
+  }
   }
   // .gallery__tab
   &__tab {
-    &.active{
-      
-width: 451px;
-height: 129px;
-display: block;
+    @include flex($flex-direction: column);
+    width: 100%;
+    max-width: 365px;
+    @include media (max, xl) {
+      max-width: 100%;
+    }
+   
+    &.active {
+      max-width: 451px;
 
-background: linear-gradient(84.14deg, #7200FF -0.11%, #FF0202 100%);
-
-      .gallery__subtitle{
-        opacity: 1;
+      padding: 4px 15px;
+      position: relative;
+      z-index: 11;
+      @include media (max, xl) {
+        max-width: 100%;
+        padding: 0;
       }
-      .gallery__text{
+      &::before {
+        @include pseudo;
+        @include wh(451px, 129px);
+        position: absolute;
+        top: 50%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(84.14deg, #7200ff -0.11%, #ff0202 100%);
+        clip-path: polygon(0% 0%, 86% 0%, 98% 50%, 86% 100%, 0% 100%);
+        z-index: -1;
+        @include media (max, xl) {
+          display: none;
+        }
+      }
+
+      .gallery__subtitle {
+        opacity: 1;
+        margin-bottom: 10px;
+      }
+      .gallery__text {
         opacity: 1;
       }
     }
@@ -198,14 +261,285 @@ background: linear-gradient(84.14deg, #7200FF -0.11%, #FF0202 100%);
     opacity: 0.2;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
+    @include media (max, xl) {
+      display: none;
+    }
   }
   // .gallery__subtitle
   &__subtitle {
-   opacity: 0.5;
+    opacity: 0.5;
   }
   // .gallery__text
   &__text {
     opacity: 0.5;
+    @include media (max, md) {
+      display: none;
+    }
+  }
+  // .gallery__tabpanel-container
+  &__tabpanel-container {
+    max-width: 62%;
+    position: relative;
+    @include media (max, xl) {
+      max-width: 90%;
+    }
+  }
+  // .gallery__tabpanel
+  &__tabpanel {
+  }
+  .tabpanel {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+  .tabpanel.active {
+    position: relative;
+    z-index: 10;
+    opacity: 1;
+  }
+  .swiper-wrapper {
+  }
+  .swiper__item{
+    img, picture{
+      width: 100%;
+    }
+  }
+  .swiper-pagination {
+    @include flex(space-between, center);
+    gap: 8px;
+    max-width: 80px;
+    margin-left: auto;
+    margin-top: 40px;
+  }
+  .swiper-pagination-bullet {
+    display: block;
+    width: 14px;
+    height: 15px;
+    border-radius: 50%;
+
+    background: #2c2c2c;
+  }
+  .swiper-pagination-bullet-active {
+    background: linear-gradient(84.14deg, #7200ff -0.11%, #ff0202 100%), #2c2c2c;
+  }
+  .swiper-button-next {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    right: -45px;
+    top: 40%;
+    border-radius: 50%;
+
+    background: linear-gradient(84.14deg, #7200ff -0.11%, #ff0202 100%);
+    border: 5px solid #000;
+    &::before {
+      @include pseudo;
+      @include background(url("@img/icons/arrow.svg"));
+      @include wh(14px, 24px);
+      right: 30%;
+      top: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+.container {
+}
+.title {
+}
+
+.tablist {
+}
+.sidebar {
+}
+.tab {
+}
+.active {
+}
+.subtitle {
+}
+.text {
+}
+.tabpanel-container {
+}
+.content {
+}
+.tabpanel {
+}
+.swiper {
+  // .swiper__item
+  &__item {
+  }
+  // .swiper__img
+  &__img {
+  }
+}
+.gallerySwiper {
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+}
+
+.gallery {
+  // .gallery__title
+  &__title {
+  }
+  // .gallery__list
+  &__list {
+  }
+  // .gallery__item
+  &__item {
+  }
+  // .gallery__counter
+  &__counter {
+  }
+  // .gallery__tab
+  &__tab {
+  }
+  // .gallery__subtitle
+  &__subtitle {
+  }
+  // .gallery__text
+  &__text {
+  }
+}
+.container {
+}
+.title {
+}
+.with-sidebar {
+}
+.tablist {
+}
+.sidebar {
+}
+.tab {
+}
+.active {
+}
+.subtitle {
+}
+.text {
+}
+.tabpanel-container {
+}
+.content {
+}
+.tabpanel {
+}
+.swiper {
+  // .swiper__item
+  &__item {
+  }
+  // .swiper__img
+  &__img {
+  }
+}
+.gallerySwiper {
+}
+
+.swiper-slide {
+}
+.swiper-pagination {
+}
+.swiper-button-next {
+}
+.gallery {
+  // .gallery__title
+  &__title {
+  }
+  // .gallery__list
+  &__list {
+  }
+  // .gallery__item
+  &__item {
+  }
+  // .gallery__counter
+  &__counter {
+  }
+  // .gallery__tab
+  &__tab {
+  }
+  // .gallery__subtitle
+  &__subtitle {
+  }
+  // .gallery__text
+  &__text {
+  }
+}
+.container {
+}
+.title {
+}
+.with-sidebar {
+}
+.tablist {
+}
+.sidebar {
+}
+.tab {
+}
+.active {
+}
+.subtitle {
+}
+.text {
+}
+.tabpanel-container {
+}
+.content {
+}
+.tabpanel {
+}
+.swiper {
+  // .swiper__item
+  &__item {
+  }
+  // .swiper__img
+  &__img {
+  }
+}
+.gallerySwiper {
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+}
+.swiper-pagination {
+}
+.swiper-button-next {
+}
+.gallery {
+  // .gallery__title
+  &__title {
+  }
+
+  // .gallery__list
+  &__list {
+  }
+  // .gallery__item
+  &__item {
+  }
+  // .gallery__counter
+  &__counter {
+  }
+  // .gallery__tab
+  &__tab {
+  }
+  // .gallery__subtitle
+  &__subtitle {
+  }
+  // .gallery__text
+  &__text {
+  }
+  // .gallery__tabpanel-container
+  &__tabpanel-container {
+  }
+  // .gallery__tabpanel
+  &__tabpanel {
   }
 }
 .container {
