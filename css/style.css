@@ -308,6 +308,12 @@ picture {
   line-height: 24px;
   color: #fff;
 }
+@media only screen and (max-width: 575px) {
+  .subtitle {
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
 
 .text {
   font-family: "ProximaNova-Light";
@@ -531,10 +537,15 @@ body {
 .prime {
   padding: 120px 0 310px;
   background-color: #ddeefe;
-  background-image: url("../img/prime1.png");
-  background-size: auto 100%;
-  background-position: 50% 50%;
+  background-image: url("../img/prime11.png");
+  background-position: 21% 50%;
+  background-size: auto 118%;
   background-repeat: no-repeat;
+}
+@media only screen and (max-width: 575px) {
+  .prime {
+    padding-bottom: 350px;
+  }
 }
 .prime__box-img {
   position: absolute;
@@ -546,6 +557,11 @@ body {
   padding-top: 170px;
   position: relative;
   z-index: 2;
+}
+@media only screen and (max-width: 992px) {
+  .prime__content {
+    padding-top: 50px;
+  }
 }
 .prime__content::before {
   content: "";
@@ -559,6 +575,21 @@ body {
   position: absolute;
   right: 5%;
   top: 47%;
+}
+@media only screen and (max-width: 992px) {
+  .prime__content::before {
+    width: 593px;
+    height: 346px;
+    position: absolute;
+    right: 34%;
+    top: 85%;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .prime__content::before {
+    right: 10%;
+    top: 98%;
+  }
 }
 .prime__content::after {
   background-repeat: no-repeat;
@@ -670,6 +701,7 @@ body {
 .prime .form__checkbox {
   margin-bottom: 1.1875rem;
   max-width: 525px;
+  padding-left: 0;
 }
 .prime .checkbox__input {
   display: none;
@@ -1005,34 +1037,39 @@ body {
 .train__content {
   display: flex;
   justify-content: space-between;
-  overflow-x: auto;
   max-width: 1440px;
   margin: 0 auto;
+}
+@media only screen and (max-width: 992px) {
+  .train__content {
+    flex-wrap: wrap;
+  }
 }
 .train__box {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  min-width: 360px;
-  min-height: 549px;
-  max-width: 100%;
+}
+@media only screen and (max-width: 992px) {
+  .train__box {
+    width: 50%;
+  }
 }
 .train__box picture {
-  position: absolute;
-  top: 0%;
   width: 100%;
   height: 100%;
 }
 .train__img {
-  position: absolute;
-  top: 0%;
   width: 100%;
   height: 100%;
 }
 .train__subtitle {
-  position: relative;
+  position: absolute;
   z-index: 1;
+  left: 50%;
+  top: 46%;
+  transform: translateX(-50%);
   text-align: center;
 }
 
