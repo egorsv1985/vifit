@@ -3516,13 +3516,10 @@
   new Swiper(".gallerySwiper", {
     slidesPerView: "1",
     loop: !0,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+    navigation: { nextEl: ".swiper-button-next" },
     pagination: { el: ".swiper-pagination", clickable: !0 },
     paginationType: "fraction",
-    pagination: { el: ".gallery .swiper-pagination", clickable: !0 },
+    grabCursor: !0,
   });
   we(ge[0].querySelector("a"));
   const be = document.querySelectorAll(".gallery__tab");

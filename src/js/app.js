@@ -334,19 +334,15 @@ const gallerySwipers = new Swiper(".gallerySwiper", {
   loop: true,
   navigation: {
     nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    
   },
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
   },
   paginationType: 'fraction',
-   // включаем пагинацию и настраиваем внешний вид номеров слайдов
-   pagination: {
-    el: ".gallery .swiper-pagination",
-    clickable: true,
-    
-  },
+  
+  grabCursor: true,
 });
 // Активация первой вкладки при загрузке страницы
 showPanel(tablistItems[0].querySelector("a"));
