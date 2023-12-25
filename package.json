@@ -75,6 +75,6 @@
 		"gulp-strip-css-comments": "^2.0.0",
 		"postcss-reporter": "^7.0.5",
 		"simplebar": "latest",
-		"stylelint": "^15.5.0"
+		"stylelint": "^16.1.0"
 	}
 }
